@@ -55,7 +55,8 @@ const initHeader = () => {
   window.addEventListener('scroll', onScroll, { passive: true });
 
   const toggle = $('[data-menu-toggle]', header);
-  const menu = $('[data-menu]', header);
+  // The menu sits outside the header: the header's backdrop-filter would trap a fixed child.
+  const menu = $('[data-menu]');
   if (!toggle || !menu) return;
   const label = $('.visually-hidden', toggle);
 
@@ -64,6 +65,7 @@ const initHeader = () => {
     toggle.setAttribute('aria-expanded', String(open));
     label.textContent = open ? 'Close menu' : 'Open menu';
     toggle.innerHTML = toggle.innerHTML.replace(/<svg[\s\S]*<\/svg>/, open ? iconX : iconMenu);
+    if (open) menu.style.top = `${Math.max(0, header.getBoundingClientRect().bottom)}px`;
     menu.hidden = !open;
     menu.classList.toggle('is-open', open);
     document.body.classList.toggle('is-locked', open);

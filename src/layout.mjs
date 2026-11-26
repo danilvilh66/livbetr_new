@@ -72,6 +72,7 @@ const header = (root, active) => `<header class="site-header" data-header>
       </button>
     </div>
   </div>
+</header>
   <div class="mobile-menu" id="mobile-menu" data-menu hidden>
     <nav aria-label="Mobile">
       <ul>
@@ -85,8 +86,7 @@ const header = (root, active) => `<header class="site-header" data-header>
       <a class="btn btn--ghost btn--block" href="${site.portalUrl}" rel="noopener">${icon('login', { size: 18 })} Log in to the patient portal</a>
       <p class="mobile-menu__help">Questions? Call <a href="${site.phoneHref}">${site.phone}</a></p>
     </div>
-  </div>
-</header>`;
+  </div>`;
 
 const footer = (root) => `<footer class="site-footer">
   <div class="container">

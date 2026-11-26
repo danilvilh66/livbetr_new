@@ -18,6 +18,10 @@ test('mobile menu opens, traps focus and closes with Escape', async ({ page, isM
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   const menu = page.locator('#mobile-menu');
   await expect(menu).toBeVisible();
+  const box = await menu.boundingBox();
+  const viewport = page.viewportSize();
+  expect(box.height).toBeGreaterThan(viewport.height * 0.6);
+  await expect(menu.getByRole('link', { name: 'Check my eligibility' })).toBeInViewport();
   await expect(menu.getByRole('link', { name: 'Home' })).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await expect(toggle).toBeFocused();
