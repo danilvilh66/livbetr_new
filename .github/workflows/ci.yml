@@ -17,7 +17,9 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm test
+      - name: Check the committed site in docs/ matches the source
+        run: git diff --exit-code -- docs || (echo 'docs/ is out of date: run npm run build and commit docs/' && exit 1)
       - uses: actions/upload-artifact@v4
         with:
           name: site
-          path: dist/
+          path: docs/

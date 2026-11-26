@@ -1,10 +1,10 @@
-// Tiny static server for dist/ (no dependencies). Usage: node scripts/serve.mjs [port]
+// Tiny static server for docs/ (no dependencies). Usage: node scripts/serve.mjs [port]
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = fileURLToPath(new URL('../dist/', import.meta.url));
+const root = fileURLToPath(new URL('../docs/', import.meta.url));
 const port = Number(process.argv[2] || process.env.PORT || 4173);
 const types = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -32,4 +32,4 @@ createServer(async (req, res) => {
   const body = await readFile(target);
   res.writeHead(file ? 200 : 404, { 'Content-Type': types[extname(target)] || 'application/octet-stream' });
   res.end(body);
-}).listen(port, () => console.log(`Serving dist/ at http://localhost:${port}`));
+}).listen(port, () => console.log(`Serving docs/ at http://localhost:${port}`));

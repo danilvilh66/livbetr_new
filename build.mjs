@@ -1,5 +1,6 @@
-// Zero-dependency static site build: renders src/pages/*.mjs into dist/ and copies public/.
-// Pages use relative links, so dist/ works from any host or sub-path.
+// Zero-dependency static site build: renders src/pages/*.mjs into docs/ and copies public/.
+// docs/ is committed, so the site opens with Live Server or GitHub Pages without a build step.
+// Pages use relative links, so docs/ works from any host or sub-path.
 import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,7 +8,7 @@ import { layout } from './src/layout.mjs';
 import { site } from './src/data.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const out = join(here, 'dist');
+const out = join(here, 'docs');
 // The 404 page is served at arbitrary URLs, so it needs absolute links.
 const basePath = process.env.BASE_PATH ?? '/';
 
@@ -39,15 +40,14 @@ const build = async () => {
     console.log(`  built ${file.replace(`${here}/`, '')}`);
   }
 
-  const today = new Date().toISOString().slice(0, 10);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapPaths.map((p) => `  <url><loc>${site.url}/${p}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+${sitemapPaths.map((p) => `  <url><loc>${site.url}/${p}</loc></url>`).join('\n')}
 </urlset>
 `;
   await writeFile(join(out, 'sitemap.xml'), sitemap);
   await writeFile(join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
-  console.log(`Done: ${pageModules.length} pages in dist/`);
+  console.log(`Done: ${pageModules.length} pages in docs/`);
 };
 
 build().catch((err) => {
