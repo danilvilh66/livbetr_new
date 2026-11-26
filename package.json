@@ -1,0 +1,19 @@
+{
+  "name": "livbetr-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Livbetr marketing website: GLP-1 weight-loss care, priced honestly.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && node scripts/serve.mjs",
+    "serve": "node scripts/serve.mjs",
+    "test": "node build.mjs && playwright test",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "@playwright/test": "1.63.0"
+  }
+}
