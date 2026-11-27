@@ -24,6 +24,17 @@ Open the repository folder in VS Code and click **Go Live**. `.vscode/settings.j
 
 If Live Server ignores the setting (for example in a multi-root workspace), right-click `docs/index.html` and choose **Open with Live Server**.
 
+## Design directions (prototypes)
+
+Four new visual directions for review live in `public/concepts/` and open at `/concepts/` (with Live Server: `http://127.0.0.1:5500/concepts/`):
+
+- **A. Itemized**: the price as a printed receipt, editorial black and white
+- **B. Big Color**: bold color blocks and a bento grid, consumer brand
+- **C. Six Months**: cinematic scroll story built with GSAP ScrollTrigger
+- **D. Plan Builder**: the home page as an interactive plan tool
+
+Each is a single self-contained HTML file. They are not linked from the site.
+
 ## Edit and rebuild
 
 ```bash

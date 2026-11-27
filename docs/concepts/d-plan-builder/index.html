@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction D: Plan Builder | Livbetr concepts</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #f3f5f9;
+  --card: #ffffff;
+  --ink: #0f1b2d;
+  --muted: #56657a;
+  --line: #e1e6ee;
+  --cobalt: #2448f5;
+  --cobalt-2: #1a37d1;
+  --cobalt-soft: #e9edff;
+  --mint: #0e9f6e;
+  --amber: #d98a04;
+  --amber-soft: #fff3dc;
+  --font: 'Manrope', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+body { font-family: var(--font); color: var(--ink); background: var(--bg); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--cobalt); }
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 2px; }
+.wrap { width: min(100% - 32px, 1240px); margin-inline: auto; }
+.concept-bar { background: var(--ink); color: #fff; font-size: 13px; }
+.concept-bar .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 40px; }
+.concept-bar a { color: #fff; }
+.nav { display: flex; align-items: center; gap: 24px; min-height: 72px; }
+.nav img { width: 112px; }
+.nav ul { display: flex; gap: 22px; list-style: none; padding: 0; margin-left: auto; font-weight: 600; font-size: 15px; }
+.nav ul a { color: var(--ink); text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 12px; border: 0; font: 700 16px/1 var(--font); text-decoration: none; cursor: pointer; transition: background-color .15s, transform .15s; }
+.btn:active { transform: scale(.98); }
+.btn--primary { background: var(--cobalt); color: #fff; }
+.btn--primary:hover { background: var(--cobalt-2); }
+.btn--soft { background: var(--cobalt-soft); color: var(--cobalt-2); }
+
+.intro { padding: 40px 0 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; }
+.intro h1 { font-size: clamp(36px, 4.6vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; max-width: 16ch; text-wrap: balance; }
+.intro p { max-width: 40ch; color: var(--muted); font-size: 18px; }
+
+.builder { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 16px; align-items: start; }
+.panel { background: var(--card); border-radius: 20px; padding: 24px; box-shadow: 0 1px 2px rgba(15,27,45,.04), 0 8px 24px rgba(15,27,45,.06); }
+.controls { display: grid; gap: 26px; position: sticky; top: 16px; }
+.ctl { display: grid; gap: 10px; }
+.ctl > label, .ctl legend { font-weight: 700; font-size: 15px; }
+fieldset { border: 0; padding: 0; min-width: 0; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 12px; background: var(--bg); }
+.seg label { position: relative; display: grid; place-items: center; min-height: 44px; border-radius: 9px; font-weight: 700; font-size: 15px; cursor: pointer; color: var(--muted); text-align: center; }
+.seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.seg label:has(input:checked) { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(15,27,45,.12); }
+.seg label:has(input:focus-visible) { outline: 3px solid var(--cobalt); }
+.num-row { display: flex; align-items: center; gap: 14px; }
+.num-row output { min-width: 84px; padding: 8px 12px; border-radius: 10px; background: var(--bg); font-weight: 800; font-variant-numeric: tabular-nums; text-align: center; }
+input[type=range] { flex: 1; accent-color: var(--cobalt); height: 32px; }
+.hint { font-size: 13px; color: var(--muted); }
+
+.results { display: grid; gap: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.kpi { background: var(--card); border-radius: 18px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(15,27,45,.04), 0 8px 24px rgba(15,27,45,.06); display: grid; gap: 4px; }
+.kpi span { font-size: 13px; color: var(--muted); font-weight: 600; }
+.kpi b { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.kpi small { font-size: 13px; color: var(--mint); font-weight: 700; }
+.chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.chart-head h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+.legend { display: flex; gap: 16px; font-size: 13px; color: var(--muted); font-weight: 600; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.chart { position: relative; margin-top: 12px; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.grid-line { stroke: var(--line); stroke-width: 1; }
+.axis { fill: var(--muted); font: 600 12px var(--font); }
+.path { fill: none; stroke: var(--cobalt); stroke-width: 3; stroke-linecap: round; }
+.area { fill: url(#area); }
+.dose-bar { fill: var(--amber); opacity: .28; }
+.dose-bar.is-active { opacity: 1; }
+.dot { fill: #fff; stroke: var(--cobalt); stroke-width: 3; }
+.cursor { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 4; }
+.scrub { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; margin-top: 8px; }
+.scrub label { font-weight: 700; font-size: 14px; }
+.readout { margin-top: 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.readout div { padding: 12px 14px; border-radius: 12px; background: var(--bg); }
+.readout span { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
+.readout b { font-size: 18px; font-variant-numeric: tabular-nums; }
+.note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+.bottom { display: grid; grid-template-columns: 1.2fr .8fr; gap: 16px; }
+.ship { list-style: none; padding: 0; display: grid; gap: 10px; margin-top: 12px; }
+.ship li { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 12px 14px; border-radius: 12px; background: var(--bg); }
+.ship .date { display: grid; place-items: center; height: 52px; border-radius: 10px; background: #fff; font-weight: 800; line-height: 1.05; text-align: center; font-size: 13px; box-shadow: inset 0 0 0 1px var(--line); }
+.ship .date b { font-size: 20px; display: block; }
+.ship .pill { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--amber-soft); color: #8a5600; }
+.checkout { display: grid; gap: 14px; align-content: start; }
+.checkout h2, .bottom h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+.sum-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.sum-row:last-of-type { border-bottom: 0; font-weight: 800; font-size: 20px; }
+.free { color: var(--mint); font-weight: 700; }
+
+.trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 56px 0; }
+.trust div { display: grid; gap: 6px; }
+.trust h3 { font-size: 18px; font-weight: 800; }
+.trust p { color: var(--muted); font-size: 15px; }
+footer.site { padding: 24px 0 48px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+
+@media (max-width: 1020px) { .builder, .bottom { grid-template-columns: 1fr; } .controls { position: static; } .kpis { grid-template-columns: 1fr 1fr; } .nav ul { display: none; } }
+@media (max-width: 560px) { .readout { grid-template-columns: 1fr 1fr; } .trust { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="concept-bar"><div class="wrap"><span>Direction D of 4: Plan Builder</span><a href="../">All directions</a></div></div>
+<header class="wrap nav">
+  <a href="../../" aria-label="Livbetr home"><img src="../../assets/img/logo.webp" width="112" height="26" alt="Livbetr"></a>
+  <ul><li><a href="#builder">Build a plan</a></li><li><a href="../../faq/">FAQ</a></li><li><a href="../../contact/">Help</a></li></ul>
+  <a class="btn btn--primary" href="../../eligibility/">Check eligibility</a>
+</header>
+
+<main class="wrap">
+  <section class="intro" aria-labelledby="hero-title">
+    <h1 id="hero-title">See your whole plan before you start.</h1>
+    <p>Move the controls. Your dose schedule, deliveries and total cost update live. The monthly price never moves.</p>
+  </section>
+
+  <section class="builder" id="builder" aria-label="Plan builder">
+    <form class="panel controls" data-form onsubmit="return false">
+      <fieldset class="ctl">
+        <legend>Medication</legend>
+        <div class="seg">
+          <label><input type="radio" name="med" value="semaglutide" checked>Semaglutide<br>$65/mo</label>
+          <label><input type="radio" name="med" value="tirzepatide">Tirzepatide<br>$110/mo</label>
+        </div>
+      </fieldset>
+      <div class="ctl">
+        <label for="w">Current weight</label>
+        <div class="num-row"><input id="w" type="range" min="140" max="400" value="220" data-weight><output for="w" data-weight-out>220 lb</output></div>
+      </div>
+      <fieldset class="ctl">
+        <legend>Plan length</legend>
+        <div class="seg">
+          <label><input type="radio" name="len" value="6" checked>6 months</label>
+          <label><input type="radio" name="len" value="12">12 months</label>
+        </div>
+      </fieldset>
+      <a class="btn btn--primary" href="../../eligibility/" data-cta>Continue with semaglutide</a>
+      <p class="hint">Takes about 3 minutes. A licensed clinician makes the final call.</p>
+    </form>
+
+    <div class="results">
+      <div class="kpis" aria-live="polite">
+        <div class="kpi"><span>Monthly price</span><b data-k="price">$65</b><small>Same at every dose</small></div>
+        <div class="kpi"><span>Plan total</span><b data-k="total">$390</b><small>No dose surcharges</small></div>
+        <div class="kpi"><span>Goal, about 15%</span><b data-k="goal">33 lb</b><small>Illustrative target</small></div>
+        <div class="kpi"><span>Shipping</span><b>$0</b><small>Every 4 weeks</small></div>
+      </div>
+
+      <div class="panel">
+        <div class="chart-head">
+          <h2>Your plan, month by month</h2>
+          <div class="legend"><span><i style="background:var(--cobalt)"></i>Goal path</span><span><i style="background:var(--amber)"></i>Weekly dose</span></div>
+        </div>
+        <div class="chart"><svg viewBox="0 0 760 300" role="img" aria-labelledby="chart-desc" data-chart><desc id="chart-desc">Illustrative goal path from current weight toward a 15% lower goal, with the weekly dose stepping up in the first months.</desc></svg></div>
+        <div class="scrub"><label for="m">Month</label><input id="m" type="range" min="0" max="6" value="0" data-month></div>
+        <div class="readout" aria-live="polite">
+          <div><span>Month</span><b data-r="month">Start</b></div>
+          <div><span>Weekly dose</span><b data-r="dose">–</b></div>
+          <div><span>Goal path</span><b data-r="weight">220 lb</b></div>
+          <div><span>Paid so far</span><b data-r="paid">$0</b></div>
+        </div>
+        <p class="note">The goal path is an illustration of a gradual 15% goal, not a prediction. Example dose schedule; your clinician sets your actual dose.</p>
+      </div>
+
+      <div class="bottom">
+        <div class="panel">
+          <h2>What arrives when</h2>
+          <p class="note" style="margin-top:4px">Example dates if a clinician approves your plan today.</p>
+          <ul class="ship" data-ship></ul>
+        </div>
+        <div class="panel checkout">
+          <h2>Your monthly receipt</h2>
+          <div class="sum-row"><span data-s="med">Semaglutide</span><span>incl.</span></div>
+          <div class="sum-row"><span>Clinician and 1:1 coach</span><span>incl.</span></div>
+          <div class="sum-row"><span>Shipping</span><span class="free">Free</span></div>
+          <div class="sum-row"><span>Per month</span><span data-s="price">$65</span></div>
+          <a class="btn btn--soft" href="../../pricing/">Compare plans in detail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Why Livbetr">
+    <div><h3>Licensed U.S. clinicians</h3><p>Every plan is reviewed and adjusted by a board-certified clinician.</p></div>
+    <div><h3>Licensed U.S. pharmacies</h3><p>Compounded medication, prepared and shipped by accredited pharmacies.</p></div>
+    <div><h3>4.7 on Trustpilot</h3><p>1,569 reviews, 89% five stars. Cancel anytime, no retention call.</p></div>
+  </section>
+</main>
+<footer class="wrap site">Compounded medications are not FDA-approved. Prescription required. Individual results vary. Design direction prototype, not the live site.</footer>
+
+<script>
+(() => {
+  const plans = {
+    semaglutide: { name: 'Semaglutide', price: 65, doses: [0.25, 0.5, 1, 1.7, 2.4] },
+    tirzepatide: { name: 'Tirzepatide', price: 110, doses: [2.5, 5, 7.5, 10, 12.5, 15] },
+  };
+  const $ = (s) => document.querySelector(s);
+  const form = $('[data-form]');
+  const svg = $('[data-chart]');
+  const monthRange = $('[data-month]');
+  const W = 760, H = 300, L = 44, R = 16, T = 16, B = 70;
+  const state = () => ({
+    med: form.med.value,
+    len: Number(form.len.value),
+    w: Number($('[data-weight]').value),
+  });
+  const doseAt = (p, m) => (m === 0 ? 0 : p.doses[Math.min(m - 1, p.doses.length - 1)]);
+  // Smooth, front-loaded curve toward a 15% goal by the end of the plan (illustrative).
+  const pathAt = (w, m, len) => w - w * 0.15 * (1 - Math.pow(1 - m / len, 1.6));
+  const fmtDate = (d) => [d.toLocaleDateString('en-US', { month: 'short' }), d.getDate()];
+
+  const draw = () => {
+    const { med, len, w } = state();
+    const p = plans[med];
+    const goal = Math.round(w * 0.15);
+    $('[data-k="price"]').textContent = `$${p.price}`;
+    $('[data-k="total"]').textContent = `$${(p.price * len).toLocaleString('en-US')}`;
+    $('[data-k="goal"]').textContent = `${goal} lb`;
+    $('[data-weight-out]').textContent = `${w} lb`;
+    $('[data-s="med"]').textContent = `Compounded ${p.name.toLowerCase()}`;
+    $('[data-s="price"]').textContent = `$${p.price}`;
+    $('[data-cta]').textContent = `Continue with ${p.name.toLowerCase()}`;
+    monthRange.max = String(len);
+    if (Number(monthRange.value) > len) monthRange.value = String(len);
+
+    const x = (m) => L + (m / len) * (W - L - R);
+    const yMin = w - goal - 8, yMax = w + 4;
+    const chartH = H - T - B;
+    const y = (v) => T + ((yMax - v) / (yMax - yMin)) * chartH;
+    let d = '';
+    for (let i = 0; i <= 60; i++) { const m = (i / 60) * len; d += `${i ? 'L' : 'M'}${x(m).toFixed(1)} ${y(pathAt(w, m, len)).toFixed(1)}`; }
+    const area = `${d}L${x(len)} ${T + chartH}L${x(0)} ${T + chartH}Z`;
+    const maxDose = Math.max(...p.doses);
+    const barW = Math.max(10, ((W - L - R) / len) * 0.45);
+    let bars = '', labels = '', grid = '';
+    for (let m = 1; m <= len; m++) {
+      const h = (doseAt(p, m) / maxDose) * 44;
+      bars += `<rect class="dose-bar" data-m="${m}" x="${(x(m - 0.5) - barW / 2).toFixed(1)}" y="${H - 22 - h}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="3"/>`;
+    }
+    for (let m = 0; m <= len; m += len === 12 ? 2 : 1) labels += `<text class="axis" x="${x(m)}" y="${H - 4}" text-anchor="middle">${m === 0 ? 'Start' : 'M' + m}</text>`;
+    [w, w - Math.round(goal / 2), w - goal].forEach((v) => { grid += `<line class="grid-line" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text class="axis" x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`; });
+    svg.innerHTML = svg.querySelector('desc').outerHTML + `<defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2448f5" stop-opacity=".18"/><stop offset="1" stop-color="#2448f5" stop-opacity="0"/></linearGradient></defs>${grid}<path class="area" d="${area}"/><path class="path" d="${d}"/>${bars}${labels}<line class="cursor" data-cursor x1="0" x2="0" y1="${T}" y2="${H - 22}"/><circle class="dot" data-dot r="7"/>`;
+    svg._x = x; svg._y = y;
+    readout();
+    ship();
+  };
+  const readout = () => {
+    const { med, len, w } = state();
+    const p = plans[med];
+    const m = Number(monthRange.value);
+    const cx = svg._x(m), cy = svg._y(pathAt(w, m, len));
+    const dot = svg.querySelector('[data-dot]'), cur = svg.querySelector('[data-cursor]');
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
+    cur.setAttribute('x1', cx); cur.setAttribute('x2', cx);
+    svg.querySelectorAll('.dose-bar').forEach((b) => b.classList.toggle('is-active', Number(b.dataset.m) === m));
+    $('[data-r="month"]').textContent = m === 0 ? 'Start' : `Month ${m}`;
+    $('[data-r="dose"]').textContent = m === 0 ? '–' : `${doseAt(p, m)} mg`;
+    $('[data-r="weight"]').textContent = `${Math.round(pathAt(w, m, len))} lb`;
+    $('[data-r="paid"]').textContent = `$${(p.price * m).toLocaleString('en-US')}`;
+    monthRange.setAttribute('aria-valuetext', m === 0 ? 'Start' : `Month ${m}`);
+  };
+  const ship = () => {
+    const { med, len } = state();
+    const p = plans[med];
+    const n = 4;
+    const start = new Date(); start.setDate(start.getDate() + 3);
+    $('[data-ship]').innerHTML = Array.from({ length: n }, (_, i) => {
+      const d = new Date(start); d.setDate(d.getDate() + i * 28);
+      const [mo, day] = fmtDate(d);
+      const dose = p.doses[Math.min(i, p.doses.length - 1)];
+      return `<li><span class="date">${mo}<b>${day}</b></span><span>${i === 0 ? 'First box, plain packaging' : `Refill ${i}, arrives before you run out`}</span><span class="pill">${dose} mg</span></li>`;
+    }).join('') + `<li><span class="date">…</span><span>Then a refill every 4 weeks for as long as you stay</span><span class="pill">$${p.price}/mo</span></li>`;
+  };
+  form.addEventListener('input', draw);
+  monthRange.addEventListener('input', readout);
+  draw();
+})();
+</script>
+</body>
+</html>

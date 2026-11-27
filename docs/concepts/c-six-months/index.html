@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction C: Six Months | Livbetr concepts</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --night: #0b1324;
+  --night-2: #111c33;
+  --text: #eef2f8;
+  --muted: #a9b4c7;
+  --gold: #f4c35a;
+  --teal: #2cc5b5;
+  --violet: #6d5bf5;
+  --rose: #f27493;
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --body: 'Source Sans 3', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; }
+html { background: var(--night); }
+body { font-family: var(--body); color: var(--text); background: var(--night); font-size: 19px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.wrap { width: min(100% - 40px, 1240px); margin-inline: auto; }
+.concept-bar { position: relative; z-index: 5; background: #000; font-size: 13px; }
+.concept-bar .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 40px; }
+
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.aurora i { position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(90px); opacity: .45; }
+.aurora i:nth-child(1) { background: var(--teal); left: -15vmax; top: -20vmax; }
+.aurora i:nth-child(2) { background: var(--violet); right: -20vmax; top: 0; }
+.aurora i:nth-child(3) { background: var(--rose); left: 20vmax; bottom: -35vmax; opacity: .28; }
+
+header.top { position: absolute; z-index: 4; left: 0; right: 0; top: 40px; }
+.nav { display: flex; align-items: center; justify-content: space-between; min-height: 84px; }
+.nav img { width: 124px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; font: 700 17px/1 var(--body); text-decoration: none; transition: transform .15s, background-color .15s, color .15s; }
+.btn:active { transform: scale(.97); }
+.btn--gold { background: var(--gold); color: var(--night); }
+.btn--gold:hover { background: #ffd37a; }
+.btn--line { box-shadow: inset 0 0 0 2px rgba(238,242,248,.5); color: var(--text); }
+.btn--line:hover { box-shadow: inset 0 0 0 2px var(--text); }
+
+.hero { position: relative; min-height: 100svh; display: grid; align-items: end; padding-bottom: 12vh; overflow: hidden; }
+.hero h1 { position: relative; font: 400 clamp(84px, 17vw, 270px)/.82 var(--display); letter-spacing: .005em; }
+.hero h1 .line { display: block; overflow: hidden; }
+.hero__sub { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 28px; margin-top: 36px; }
+.hero__sub p { max-width: 44ch; color: var(--muted); font-size: 21px; }
+.med { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+.med button { min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: 600 16px var(--body); cursor: pointer; }
+.med button[aria-pressed='true'] { background: var(--text); color: var(--night); }
+.scroll-cue { color: var(--muted); font-size: 15px; }
+
+/* HUD: the price that never moves */
+.hud { position: fixed; z-index: 6; left: 50%; bottom: 20px; transform: translateX(-50%); display: flex; align-items: center; gap: 20px; padding: 10px 12px 10px 22px; border-radius: 999px; background: rgba(11,19,36,.78); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14), 0 20px 40px rgba(0,0,0,.35); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.hud.is-on { opacity: 1; pointer-events: auto; }
+.hud__month { font: 400 26px/1 var(--display); letter-spacing: .04em; min-width: 96px; }
+.hud__bar { width: 140px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.15); overflow: hidden; }
+.hud__bar i { display: block; height: 100%; width: 0; background: var(--teal); }
+.hud__price { display: flex; align-items: baseline; gap: 6px; padding: 8px 16px; border-radius: 999px; background: var(--gold); color: var(--night); font-weight: 700; }
+.hud__price b { font: 400 28px/1 var(--display); letter-spacing: .02em; }
+
+/* Journey (pinned) */
+.journey { position: relative; height: 100svh; overflow: hidden; background: radial-gradient(80% 60% at 70% 40%, rgba(109,91,245,.18), transparent 70%), var(--night); }
+.journey__inner { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 48px; }
+.big-month { font: 400 clamp(160px, 30vw, 420px)/.8 var(--display); color: transparent; -webkit-text-stroke: 2px rgba(238,242,248,.85); font-variant-numeric: tabular-nums; }
+.big-month small { display: block; font-size: .16em; -webkit-text-stroke: 0; color: var(--muted); letter-spacing: .08em; margin-bottom: 12px; }
+.panel { display: grid; gap: 28px; }
+.ring { position: relative; width: min(300px, 60vw); aspect-ratio: 1; }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring__track { fill: none; stroke: rgba(255,255,255,.1); stroke-width: 14; }
+.ring__fill { fill: none; stroke: url(#grad); stroke-width: 14; stroke-linecap: round; stroke-dasharray: 754; stroke-dashoffset: 754; }
+.ring__label { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+.ring__label b { font: 400 64px/1 var(--display); letter-spacing: .02em; }
+.ring__label span { color: var(--muted); font-size: 15px; }
+.caption h2 { font: 400 clamp(40px, 4.6vw, 64px)/.95 var(--display); letter-spacing: .01em; }
+.caption p { margin-top: 12px; color: var(--muted); max-width: 40ch; font-size: 20px; }
+
+/* Static fallback (reduced motion / no JS) */
+.journey--static { height: auto; padding-block: 96px; }
+.journey--static .journey__inner { display: none; }
+.steps-static { display: none; }
+.journey--static .steps-static { display: grid; gap: 28px; }
+.steps-static li { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.14); }
+.steps-static b { font: 400 48px/1 var(--display); color: var(--gold); }
+.steps-static h3 { font: 400 34px/1 var(--display); }
+.steps-static p { color: var(--muted); }
+
+/* Same price */
+.same { position: relative; padding-block: clamp(96px, 12vw, 180px); text-align: center; overflow: hidden; }
+.same p.kicker { color: var(--muted); font-size: 22px; }
+.same .giant { margin-top: 28px; font: 400 clamp(180px, 34vw, 520px)/.8 var(--display); color: var(--gold); letter-spacing: -.01em; }
+.same .receipt { display: inline-grid; grid-template-columns: repeat(6, auto); gap: 10px; margin-top: 28px; }
+.same .receipt span { padding: 8px 14px; border-radius: 12px; background: rgba(255,255,255,.06); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); font-variant-numeric: tabular-nums; font-weight: 600; }
+.same .sum { margin-top: 18px; color: var(--muted); }
+
+.final { padding-block: 0 140px; }
+.final__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card { border-radius: 28px; padding: 36px; background: var(--night-2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); display: grid; gap: 14px; }
+.card h3 { font: 400 52px/1 var(--display); letter-spacing: .01em; }
+.card .amt { font: 400 96px/.9 var(--display); color: var(--gold); }
+.card p { color: var(--muted); }
+.final h2 { font: 400 clamp(56px, 8vw, 120px)/.9 var(--display); margin-bottom: 36px; }
+footer.site { padding: 0 0 120px; color: var(--muted); font-size: 14px; }
+.fine { color: var(--muted); font-size: 14px; margin-top: 20px; }
+
+@media (max-width: 860px) {
+  .journey__inner { grid-template-columns: 1fr; align-content: center; gap: 16px; }
+  .big-month { font-size: 34vw; }
+  .ring { width: 180px; }
+  .final__grid { grid-template-columns: 1fr; }
+  .same .receipt { grid-template-columns: repeat(3, auto); }
+  .hud__bar { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="concept-bar"><div class="wrap"><span>Direction C of 4: Six Months</span><a href="../">All directions</a></div></div>
+<header class="top"><div class="wrap nav">
+  <a href="../../" aria-label="Livbetr home"><img src="../../assets/img/logo-white.webp" width="124" height="29" alt="Livbetr"></a>
+  <a class="btn btn--gold" href="../../eligibility/">Check eligibility</a>
+</div></header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="wrap">
+      <h1 id="hero-title"><span class="line">Six months</span><span class="line">from now.</span></h1>
+      <div class="hero__sub">
+        <p>Follow one plan from the first question to the sixth refill. Watch what changes, and the one thing that doesn’t.</p>
+        <div>
+          <div class="med" role="group" aria-label="Medication">
+            <button type="button" aria-pressed="true" data-med="semaglutide">Semaglutide</button>
+            <button type="button" aria-pressed="false" data-med="tirzepatide">Tirzepatide</button>
+          </div>
+          <p class="scroll-cue">Scroll to start month one</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey" aria-labelledby="journey-title" data-journey>
+    <h2 id="journey-title" class="vh" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your first six months</h2>
+    <div class="wrap journey__inner" aria-hidden="true">
+      <p class="big-month"><small>Month</small><span data-big>00</span></p>
+      <div class="panel">
+        <div class="ring">
+          <svg viewBox="0 0 280 280"><defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2cc5b5"/><stop offset="1" stop-color="#6d5bf5"/></linearGradient></defs><circle class="ring__track" cx="140" cy="140" r="120"/><circle class="ring__fill" cx="140" cy="140" r="120" data-ring/></svg>
+          <div class="ring__label"><b data-dose>0 mg</b><span>weekly dose</span></div>
+        </div>
+        <div class="caption"><h2 data-cap-title>Day one</h2><p data-cap-text>A 3-minute eligibility check, then a licensed clinician reviews your answers. Same-day slots.</p></div>
+      </div>
+    </div>
+    <ol class="wrap steps-static" data-static-list></ol>
+  </section>
+
+  <section class="same" aria-labelledby="same-title">
+    <div class="aurora" aria-hidden="true" style="opacity:.6"><i></i><i></i><i></i></div>
+    <div class="wrap" style="position:relative">
+      <p class="kicker" id="same-title">What stayed the same the whole time</p>
+      <p class="giant" data-price-giant>$65</p>
+      <div class="receipt" data-receipt></div>
+      <p class="sum" data-sum>6 months, $390 total. No dose surcharges.</p>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-title">
+    <div class="wrap">
+      <h2 id="final-title">Start month one.</h2>
+      <div class="final__grid">
+        <article class="card"><h3>Semaglutide</h3><p class="amt">$65/mo</p><p>The easiest place to start. Compounded GLP-1.</p><a class="btn btn--gold" href="../../eligibility/">Check eligibility</a></article>
+        <article class="card"><h3>Tirzepatide</h3><p class="amt">$110/mo</p><p>Works two ways on appetite. Compounded GLP-1/GIP.</p><a class="btn btn--line" href="../../eligibility/">Check eligibility</a></article>
+      </div>
+      <p class="fine">Example dose schedule; your clinician sets your actual dose. Compounded medications are not FDA-approved. Individual results vary.</p>
+    </div>
+  </section>
+</main>
+<footer class="wrap site">Livbetr LLC, Miami, FL. Design direction prototype, not the live site.</footer>
+
+<div class="hud" data-hud aria-hidden="true">
+  <span class="hud__month" data-hud-month>Day one</span>
+  <span class="hud__bar"><i data-hud-bar></i></span>
+  <span class="hud__price"><b data-hud-price>$65</b>/mo, locked</span>
+</div>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  const plans = {
+    semaglutide: { price: 65, doses: [0, 0.25, 0.5, 1, 1.7, 2.4, 2.4] },
+    tirzepatide: { price: 110, doses: [0, 2.5, 5, 7.5, 10, 12.5, 15] },
+  };
+  const story = [
+    ['Day one', 'A 3-minute eligibility check, then a licensed clinician reviews your answers. Same-day slots.'],
+    ['Starting dose', 'Your first box arrives in plain packaging. Your coach checks in during week one.'],
+    ['First step up', 'Check-ins show how you feel. Your clinician raises the dose when you’re ready.'],
+    ['Settling in', 'Your refill ships before you run out. Questions go to your care team, one message away.'],
+    ['Adjusting', 'The dose changes again if your clinician says so. The price doesn’t.'],
+    ['Habits', 'Your coach helps with the routines that make the change stick.'],
+    ['Six months', 'Same plan, same team, and the same price you started with.'],
+  ];
+  let med = 'semaglutide';
+  const $ = (s) => document.querySelector(s);
+  const fmt = (mg) => (mg ? `${mg} mg` : 'Not yet');
+  const journey = $('[data-journey]');
+  const hud = $('[data-hud]');
+
+  const renderStatic = () => {
+    const p = plans[med];
+    $('[data-static-list]').innerHTML = story.map(([t, d], i) =>
+      `<li><b>${i === 0 ? 'Day 1' : 'Month ' + i}</b><div><h3>${t}${p.doses[i] ? ', ' + fmt(p.doses[i]) : ''}</h3><p>${d} <strong>Price: $${p.price}/mo.</strong></p></div></li>`).join('');
+  };
+  const renderPrice = () => {
+    const p = plans[med];
+    $('[data-hud-price]').textContent = `$${p.price}`;
+    $('[data-price-giant]').textContent = `$${p.price}`;
+    $('[data-receipt]').innerHTML = Array.from({ length: 6 }, (_, i) => `<span>M${i + 1} $${p.price}</span>`).join('');
+    $('[data-sum]').textContent = `6 months, $${(p.price * 6).toLocaleString('en-US')} total. No dose surcharges.`;
+    renderStatic();
+  };
+  let current = -1;
+  const show = (i) => {
+    if (i === current) return;
+    current = i;
+    const p = plans[med];
+    $('[data-big]').textContent = String(i).padStart(2, '0');
+    $('[data-dose]').textContent = fmt(p.doses[i]);
+    $('[data-cap-title]').textContent = story[i][0];
+    $('[data-cap-text]').textContent = story[i][1];
+    $('[data-hud-month]').textContent = i === 0 ? 'Day one' : `Month ${i}`;
+  };
+  document.querySelectorAll('[data-med]').forEach((b) => b.addEventListener('click', () => {
+    med = b.dataset.med;
+    document.querySelectorAll('[data-med]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const i = Math.max(current, 0); current = -1; show(i); renderPrice();
+  }));
+  renderPrice();
+  show(0);
+
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger) {
+    journey.classList.add('journey--static');
+    hud.classList.add('is-on');
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // One orchestrated entrance: the headline lines rise in.
+  gsap.from('.hero h1 .line', { yPercent: 100, opacity: 0, duration: 1.1, ease: 'power4.out', stagger: 0.12 });
+  gsap.from('.hero__sub', { opacity: 0, y: 20, duration: 0.8, delay: 0.5, ease: 'power3.out' });
+
+  const ring = $('[data-ring]');
+  const max = () => Math.max(...plans[med].doses);
+  ScrollTrigger.create({
+    trigger: journey,
+    start: 'top top',
+    end: '+=420%',
+    pin: true,
+    scrub: 1,
+    anticipatePin: 1,
+    snap: { snapTo: 1 / 6, duration: { min: 0.2, max: 0.5 }, ease: 'power1.inOut' },
+    onUpdate: (self) => {
+      const i = Math.round(self.progress * 6);
+      show(i);
+      const frac = plans[med].doses[i] / max();
+      gsap.to(ring, { strokeDashoffset: 754 * (1 - frac), duration: 0.5, ease: 'power2.out', overwrite: true });
+      $('[data-hud-bar]').style.width = `${self.progress * 100}%`;
+    },
+  });
+  ScrollTrigger.create({
+    trigger: journey, start: 'top 60%', end: 'max',
+    onToggle: (self) => hud.classList.toggle('is-on', self.isActive),
+  });
+  gsap.from('.same .giant', { scale: 0.86, opacity: 0, ease: 'none', scrollTrigger: { trigger: '.same', start: 'top 85%', end: 'top 30%', scrub: 1 } });
+  document.fonts?.ready.then(() => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>

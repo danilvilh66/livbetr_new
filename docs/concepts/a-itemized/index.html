@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direction A: Itemized | Livbetr concepts</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --paper: #ffffff;
+  --receipt: #fffef9;
+  --ink: #000000;
+  --ink-2: #3b3b3b;
+  --ink-3: #6b6b6b;
+  --rule: #d9d9d4;
+  --marker: #e6ff4d;
+  --focus: #1a5cff;
+  --display: 'Archivo', 'Arial Narrow', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+* { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: var(--display); font-variation-settings: 'wdth' 100; color: var(--ink); background: var(--paper); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.wrap { width: min(100% - 40px, 1240px); margin-inline: auto; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.concept-bar { background: var(--ink); color: #fff; font: 500 13px/1 var(--mono); }
+.concept-bar .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 40px; gap: 16px; }
+.concept-bar a { color: #fff; text-underline-offset: 3px; }
+
+header { border-bottom: 2px solid var(--ink); }
+.nav { display: flex; align-items: center; gap: 28px; min-height: 76px; }
+.nav img { width: 116px; }
+.nav ul { display: flex; gap: 24px; list-style: none; padding: 0; margin-left: auto; font-weight: 600; font-size: 16px; }
+.nav ul a { text-decoration: none; }
+.nav ul a:hover { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 22px; border: 2px solid var(--ink); border-radius: 6px;
+  font: 700 17px/1 var(--display); text-decoration: none; cursor: pointer;
+  background: var(--ink); color: #fff; transition: background-color .15s, color .15s, transform .15s;
+}
+.btn:hover { background: #fff; color: var(--ink); }
+.btn:active { transform: translateY(1px); }
+.btn--line { background: #fff; color: var(--ink); }
+.btn--line:hover { background: var(--marker); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 5vw, 80px); padding-block: clamp(40px, 6vw, 88px); align-items: start; }
+.hero h1 { font-size: clamp(56px, 9.6vw, 156px); font-weight: 850; font-variation-settings: 'wdth' 68; line-height: .86; letter-spacing: -0.02em; text-wrap: balance; }
+.hero__lead { max-width: 34ch; margin-top: 28px; font-size: clamp(19px, 1.6vw, 23px); color: var(--ink-2); text-wrap: pretty; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.hero__proof { margin-top: 40px; display: grid; gap: 6px; font: 500 14px/1.5 var(--mono); color: var(--ink-2); list-style: none; padding: 0; }
+.hero__proof li::before { content: '✓ '; font-weight: 600; color: var(--ink); }
+
+/* Receipt */
+.receipt-wrap { position: relative; }
+.seg { display: flex; border: 2px solid var(--ink); border-radius: 6px; overflow: hidden; margin-bottom: 18px; }
+.seg button { flex: 1; min-height: 48px; border: 0; background: #fff; font: 600 15px var(--mono); cursor: pointer; color: var(--ink); }
+.seg button + button { border-left: 2px solid var(--ink); }
+.seg button[aria-pressed='true'] { background: var(--ink); color: #fff; }
+.receipt {
+  position: relative; background: var(--receipt); padding: 30px 28px 40px;
+  font: 400 15px/1.5 var(--mono); color: var(--ink);
+  padding-bottom: 44px;
+}
+.receipt-shell { filter: drop-shadow(0 14px 22px rgba(0,0,0,.16)); }
+/* Torn paper edge */
+.receipt::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -11px; height: 12px;
+  background: linear-gradient(-45deg, transparent 8px, var(--receipt) 0) 0 0 / 16px 12px repeat-x,
+              linear-gradient(45deg, transparent 8px, var(--receipt) 0) 0 0 / 16px 12px repeat-x;
+}
+.receipt__head { text-align: center; padding-bottom: 14px; border-bottom: 1.5px dashed var(--ink); }
+.receipt__head strong { display: block; font-weight: 600; letter-spacing: .14em; }
+.receipt__head span { color: var(--ink-3); font-size: 13px; }
+.lines { list-style: none; padding: 14px 0; display: grid; gap: 6px; border-bottom: 1.5px dashed var(--ink); }
+.line { display: flex; gap: 8px; align-items: baseline; }
+.line span:first-child { flex: none; max-width: 70%; }
+.line .dots { flex: 1; border-bottom: 1.5px dotted var(--ink-3); transform: translateY(-4px); min-width: 12px; }
+.line .val { flex: none; font-weight: 500; font-variant-numeric: tabular-nums; }
+.total { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 6px; margin: 12px -6px 4px; font-weight: 600; font-size: 19px; background: linear-gradient(transparent 12%, var(--marker) 12% 88%, transparent 88%); }
+.total .val { font-size: 30px; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.receipt__note { color: var(--ink-2); font-size: 13px; margin-top: 10px; }
+.barcode { height: 46px; margin-top: 18px; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 9px, var(--ink) 9px 12px, transparent 12px 13px); opacity: .9; }
+.receipt.is-printing .line, .receipt.is-printing .total { opacity: 0; transform: translateY(-6px); }
+.line, .total { transition: opacity .28s ease, transform .28s ease; transition-delay: calc(var(--n, 0) * 70ms); }
+@media (prefers-reduced-motion: reduce) { .line, .total { transition: none; } }
+
+/* Not on your receipt */
+.section { padding-block: clamp(64px, 8vw, 128px); border-top: 2px solid var(--ink); }
+.section h2 { font-size: clamp(40px, 6vw, 92px); font-weight: 850; font-variation-settings: 'wdth' 70; line-height: .92; letter-spacing: -0.015em; max-width: 14ch; }
+.section__lead { max-width: 52ch; margin-top: 20px; color: var(--ink-2); font-size: 20px; }
+.struck { list-style: none; padding: 0; margin-top: 48px; display: grid; }
+.struck li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; padding: 26px 0; border-top: 1.5px solid var(--rule); align-items: baseline; }
+.struck li:last-child { border-bottom: 1.5px solid var(--rule); }
+.struck s { font-size: clamp(28px, 3.6vw, 52px); font-weight: 750; font-variation-settings: 'wdth' 80; text-decoration-thickness: 4px; line-height: 1.05; }
+.struck p { font-size: 19px; color: var(--ink-2); max-width: 40ch; }
+
+/* Timeline as statement */
+.ledger { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 2px solid var(--ink); }
+.ledger > div { padding: 28px 24px 32px; display: grid; gap: 10px; align-content: start; }
+.ledger > div + div { border-left: 2px solid var(--ink); }
+.ledger .when { font: 600 14px var(--mono); }
+.ledger h3 { font-size: 26px; font-weight: 800; font-variation-settings: 'wdth' 80; line-height: 1.05; }
+.ledger p { color: var(--ink-2); font-size: 17px; }
+
+/* Fine print */
+.fine { background: var(--ink); color: #fff; border-top: 0; }
+.fine h2 { color: #fff; }
+.fine-grid { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px 64px; }
+.fine-grid p { font-size: clamp(20px, 1.9vw, 27px); line-height: 1.38; color: #e9e9e9; text-wrap: pretty; }
+.fine-grid p b { color: var(--marker); font-weight: 700; }
+
+/* Review */
+.review { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.stamp { display: inline-grid; place-items: center; width: 220px; aspect-ratio: 1; border: 3px solid var(--ink); border-radius: 50%; transform: rotate(-8deg); text-align: center; font: 600 14px/1.4 var(--mono); }
+.stamp b { display: block; font: 850 64px/1 var(--display); font-variation-settings: 'wdth' 70; }
+blockquote p { font-size: clamp(24px, 2.6vw, 38px); font-weight: 600; line-height: 1.25; letter-spacing: -.01em; text-wrap: pretty; }
+blockquote footer { margin-top: 18px; font: 500 15px var(--mono); color: var(--ink-2); }
+
+.cta { text-align: left; }
+.cta .hero__ctas { margin-top: 36px; }
+footer.site { border-top: 2px solid var(--ink); padding: 32px 0 48px; font: 400 13px/1.6 var(--mono); color: var(--ink-2); }
+
+@media (max-width: 900px) {
+  .hero, .review { grid-template-columns: 1fr; }
+  .ledger { grid-template-columns: 1fr 1fr; }
+  .ledger > div:nth-child(3) { border-left: 0; }
+  .ledger > div:nth-child(n+3) { border-top: 2px solid var(--ink); }
+  .fine-grid, .struck li { grid-template-columns: 1fr; gap: 8px; }
+  .nav ul { display: none; }
+}
+@media (max-width: 520px) {
+  .ledger { grid-template-columns: 1fr; }
+  .ledger > div + div { border-left: 0; border-top: 2px solid var(--ink); }
+  .receipt { padding-inline: 18px; font-size: 13.5px; }
+}
+</style>
+</head>
+<body>
+<div class="concept-bar"><div class="wrap"><span>Direction A of 4: Itemized</span><a href="../">All directions</a></div></div>
+<header>
+  <div class="wrap nav">
+    <a href="../../" aria-label="Livbetr home"><img src="../../assets/img/logo.webp" width="116" height="27" alt="Livbetr"></a>
+    <ul><li><a href="#how">How it works</a></li><li><a href="#receipt">Pricing</a></li><li><a href="#fine">Fine print</a></li></ul>
+    <a class="btn" href="../../eligibility/">Check eligibility</a>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <div>
+      <h1 id="hero-title">Weight-loss care, itemized.</h1>
+      <p class="hero__lead">GLP-1 medication, a licensed clinician, a 1:1 coach and delivery on one line of your statement. The total doesn’t change when your dose does.</p>
+      <div class="hero__ctas">
+        <a class="btn" href="../../eligibility/">Check my eligibility, 3 min</a>
+        <a class="btn btn--line" href="#fine">Read the fine print first</a>
+      </div>
+      <ul class="hero__proof">
+        <li>LegitScript certified</li>
+        <li>Board-certified U.S. clinicians</li>
+        <li>4.7 on Trustpilot, 1,569 reviews</li>
+      </ul>
+    </div>
+
+    <div class="receipt-wrap" id="receipt">
+      <div class="seg" role="group" aria-label="Medication">
+        <button type="button" aria-pressed="true" data-med="semaglutide">Semaglutide</button>
+        <button type="button" aria-pressed="false" data-med="tirzepatide">Tirzepatide</button>
+      </div>
+      <div class="receipt-shell"><div class="receipt" aria-live="polite">
+        <div class="receipt__head"><strong>LIVBETR CARE</strong><span>Monthly plan, ships every 4 weeks</span></div>
+        <ul class="lines">
+          <li class="line" style="--n:0"><span data-med-name>Compounded semaglutide</span><i class="dots"></i><span class="val">incl.</span></li>
+          <li class="line" style="--n:1"><span>Licensed clinician review</span><i class="dots"></i><span class="val">incl.</span></li>
+          <li class="line" style="--n:2"><span>Dose increases</span><i class="dots"></i><span class="val">$0.00</span></li>
+          <li class="line" style="--n:3"><span>1:1 care coach</span><i class="dots"></i><span class="val">incl.</span></li>
+          <li class="line" style="--n:4"><span>Check-ins and tracking</span><i class="dots"></i><span class="val">incl.</span></li>
+          <li class="line" style="--n:5"><span>Shipping, plain box</span><i class="dots"></i><span class="val">$0.00</span></li>
+        </ul>
+        <div class="total" style="--n:6"><span>Total per month</span><span class="val" data-total>$65.00</span></div>
+        <p class="receipt__note">Same total at every dose. Prescribed only if a licensed clinician approves; full refund if not.</p>
+        <div class="barcode" aria-hidden="true"></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="not-title">
+    <div class="wrap">
+      <h2 id="not-title">What’s not on your receipt</h2>
+      <p class="section__lead">The things that make GLP-1 bills creep up, and what happens instead.</p>
+      <ul class="struck">
+        <li><s>Dose surcharges</s><p>Your dose usually steps up over the first months. Your price stays exactly where it started.</p></li>
+        <li><s>Shipping fees</s><p>Medication ships free, in plain packaging, every 4 weeks. Refills arrive before you run out.</p></li>
+        <li><s>Insurance paperwork</s><p>No insurance needed. No prior authorizations, no surprise bills.</p></li>
+        <li><s>Retention calls</s><p>Cancel by email, in the portal or by phone. Nobody tries to talk you out of it.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <h2 id="how-title">Four steps, timed</h2>
+      <div class="ledger">
+        <div><span class="when">About 3 min</span><h3>Eligibility check</h3><p>A few questions about your health and goals.</p></div>
+        <div><span class="when">Same day</span><h3>Clinician review</h3><p>A licensed U.S. clinician decides if medication is right for you.</p></div>
+        <div><span class="when">Every 4 weeks</span><h3>Delivery</h3><p>From a licensed U.S. pharmacy, straight to your door.</p></div>
+        <div><span class="when">Ongoing</span><h3>Coach check-ins</h3><p>One person who knows your plan, one message away.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fine" id="fine" aria-labelledby="fine-title">
+    <div class="wrap">
+      <h2 id="fine-title">The fine print, printed large</h2>
+      <div class="fine-grid">
+        <p><b>Compounded medications are not FDA-approved.</b> They’re prepared by licensed U.S. pharmacies; the FDA doesn’t review them for safety, effectiveness or quality.</p>
+        <p><b>You pay before a clinician reviews you.</b> If treatment isn’t approved, your full payment is refunded within seven business days.</p>
+        <p><b>Results vary.</b> Plans aim for about 15% of body weight over time. That’s a goal, not a promise.</p>
+        <p><b>Livbetr doesn’t practice medicine.</b> Independent licensed clinicians make every prescribing decision. In an emergency, call 911.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="review-title">
+    <div class="wrap review">
+      <div><h2 id="review-title" class="vh">What members say</h2><div class="stamp"><div><b>4.7</b>out of 5<br>1,569 reviews</div></div></div>
+      <blockquote>
+        <p>“She patiently walked me through resetting my account, only releasing the call when I was completely satisfied.”</p>
+        <footer>Lori Lappin-Keeley, Trustpilot, September 3, 2026</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section cta" aria-labelledby="cta-title">
+    <div class="wrap">
+      <h2 id="cta-title">Start with the total you’ll keep paying.</h2>
+      <div class="hero__ctas"><a class="btn" href="../../eligibility/">Check my eligibility</a><a class="btn btn--line" href="#receipt">Compare the two plans</a></div>
+    </div>
+  </section>
+</main>
+<footer class="site"><div class="wrap">Livbetr LLC, 66 W Flagler St, Miami, FL 33130. 1-888-664-9435. Design direction prototype, not the live site.</div></footer>
+
+<script>
+(() => {
+  const plans = { semaglutide: { name: 'Compounded semaglutide', total: '$65.00' }, tirzepatide: { name: 'Compounded tirzepatide', total: '$110.00' } };
+  const receipt = document.querySelector('.receipt');
+  const buttons = document.querySelectorAll('[data-med]');
+  buttons.forEach((b) => b.addEventListener('click', () => {
+    if (b.getAttribute('aria-pressed') === 'true') return;
+    buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const p = plans[b.dataset.med];
+    receipt.classList.add('is-printing');
+    setTimeout(() => {
+      receipt.querySelector('[data-med-name]').textContent = p.name;
+      receipt.querySelector('[data-total]').textContent = p.total;
+      receipt.classList.remove('is-printing');
+    }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 320);
+  }));
+})();
+</script>
+</body>
+</html>

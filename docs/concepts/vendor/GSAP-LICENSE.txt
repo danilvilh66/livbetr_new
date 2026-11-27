@@ -1,0 +1,2 @@
+GSAP 3.13.0 (gsap.min.js, ScrollTrigger.min.js, SplitText.min.js) from the npm package "gsap".
+GSAP is free to use under the GSAP Standard "No Charge" License: https://gsap.com/standard-license

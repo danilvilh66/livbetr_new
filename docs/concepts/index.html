@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design directions | Livbetr</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+@font-face { font-family: 'Figtree'; src: url(../assets/fonts/figtree-latin-var.woff2) format('woff2'); font-weight: 300 900; font-display: swap; }
+:root { --ink: #121417; --muted: #5d6470; --line: #e4e6ea; --bg: #f6f7f8; --card: #fff; --blue: #1a5cff; }
+* { box-sizing: border-box; margin: 0; }
+body { font-family: 'Figtree', system-ui, sans-serif; color: var(--ink); background: var(--bg); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--blue); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.wrap { width: min(100% - 32px, 1200px); margin-inline: auto; }
+header { padding: 56px 0 32px; }
+h1 { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.04; max-width: 18ch; text-wrap: balance; }
+.lead { margin-top: 18px; max-width: 62ch; color: var(--muted); font-size: 19px; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; list-style: none; padding: 0; }
+.toc a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--card); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; }
+.toc a:hover { box-shadow: inset 0 0 0 1.5px var(--ink); }
+
+.dir { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 36px; padding: 32px; margin-bottom: 24px; border-radius: 28px; background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.05); scroll-margin-top: 16px; }
+.shots { position: relative; padding-bottom: 40px; }
+.shots .desk { border-radius: 14px; box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 14px 30px rgba(0,0,0,.12); }
+.shots .mob { position: absolute; right: -8px; bottom: 0; width: 26%; border-radius: 14px; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 14px 30px rgba(0,0,0,.2); }
+.info { display: grid; gap: 16px; align-content: start; }
+.letter { font-weight: 700; color: var(--muted); font-size: 15px; }
+.info h2 { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; }
+.idea { font-size: 19px; }
+.swatches { display: flex; gap: 6px; }
+.swatches i { width: 34px; height: 34px; border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+dl { display: grid; grid-template-columns: 120px 1fr; gap: 8px 16px; font-size: 15px; }
+dt { color: var(--muted); font-weight: 600; }
+.skills { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; }
+.skills li { padding: 4px 10px; border-radius: 8px; background: #eef2ff; color: #2a3c8f; font-size: 13px; font-weight: 600; }
+.skills li.later { background: #f3f4f6; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.btn { display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 12px; background: var(--ink); color: #fff; text-decoration: none; font-weight: 700; }
+.btn:hover { background: #2b2f36; }
+.btn--line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line); }
+.btn--line:hover { background: var(--bg); }
+
+.section { padding: 40px 0; }
+.section h2 { font-size: 30px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 18px; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 20px; overflow: hidden; font-size: 15px; }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { background: #fafafa; font-weight: 700; }
+tr:last-child td { border-bottom: 0; }
+.table-wrap { overflow-x: auto; border-radius: 20px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+.extras { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; list-style: none; padding: 0; }
+.extras li { background: var(--card); border-radius: 20px; padding: 22px; display: grid; gap: 6px; }
+.extras h3 { font-size: 19px; font-weight: 800; }
+.extras p { color: var(--muted); font-size: 15px; }
+.extras .need { font-size: 13px; font-weight: 700; color: #9a5b00; }
+.rec { background: var(--ink); color: #fff; border-radius: 28px; padding: 36px; display: grid; gap: 12px; }
+.rec h2 { color: #fff; margin: 0; }
+.rec p { color: #c9ccd2; max-width: 70ch; }
+footer { padding: 32px 0 64px; color: var(--muted); font-size: 14px; }
+@media (max-width: 900px) { .dir { grid-template-columns: 1fr; padding: 20px; } .extras { grid-template-columns: 1fr; } dl { grid-template-columns: 1fr; gap: 2px; } dd { margin-bottom: 8px; } }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>Four new design directions for Livbetr</h1>
+  <p class="lead">Version 1 kept the look of today’s site. These four are new directions, each a working prototype of the home page with real interactions. Open them, click around, then pick one, or a mix, and we’ll build the full site in it.</p>
+  <ul class="toc">
+    <li><a href="#a">A. Itemized</a></li>
+    <li><a href="#b">B. Big Color</a></li>
+    <li><a href="#c">C. Six Months</a></li>
+    <li><a href="#d">D. Plan Builder</a></li>
+    <li><a href="#compare">Side by side</a></li>
+    <li><a href="#more">More we can add</a></li>
+  </ul>
+</header>
+
+<main class="wrap">
+  <article class="dir" id="a" aria-labelledby="a-title">
+    <div class="shots">
+      <img class="desk" src="shots/a-itemized.webp" width="1200" height="750" alt="Direction A home page: huge black condensed headline and a printed receipt totaling $65.00 a month">
+      <img class="mob" src="shots/a-itemized-mobile.webp" width="360" height="800" alt="Direction A on a phone" loading="lazy">
+    </div>
+    <div class="info">
+      <p class="letter">Direction A</p>
+      <h2 id="a-title">Itemized</h2>
+      <p class="idea">Honesty you can read. The price is a printed receipt with every line spelled out, and the fine print is set in big type instead of hidden.</p>
+      <div class="swatches" aria-label="Palette: black, white, highlighter yellow"><i style="background:#000"></i><i style="background:#fff"></i><i style="background:#e6ff4d"></i><i style="background:#fffef9"></i></div>
+      <dl>
+        <dt>Feels like</dt><dd>An editorial, typographic brand. Black on white, one highlighter color.</dd>
+        <dt>Type</dt><dd>Archivo, condensed for headlines; IBM Plex Mono for the receipt</dd>
+        <dt>Signature</dt><dd>Switch medication and the receipt reprints line by line</dd>
+        <dt>Effort</dt><dd>Low to medium. Few images needed.</dd>
+        <dt>Watch out</dt><dd>Austere for some visitors; needs strong copy to carry it</dd>
+      </dl>
+      <ul class="skills" aria-label="Skills">
+        <li>UI UX Pro Max: Swiss and editorial style, type search</li>
+        <li>Frontend Design: receipt concept</li>
+        <li>Make Interfaces Feel Better</li>
+        <li class="later">Full build: UX Writing, A11y Enforcer</li>
+      </ul>
+      <div class="actions"><a class="btn" href="a-itemized/">Open prototype</a></div>
+    </div>
+  </article>
+
+  <article class="dir" id="b" aria-labelledby="b-title">
+    <div class="shots">
+      <img class="desk" src="shots/b-big-color.webp" width="1200" height="750" alt="Direction B home page: a large ultramarine block with the headline GLP-1 care that never gets pricier, a vial photo and a lime sticker" loading="lazy">
+      <img class="mob" src="shots/b-big-color-mobile.webp" width="360" height="800" alt="Direction B on a phone" loading="lazy">
+    </div>
+    <div class="info">
+      <p class="letter">Direction B</p>
+      <h2 id="b-title">Big Color</h2>
+      <p class="idea">A confident consumer brand. Saturated color blocks, a bento grid of benefits and playful micro-interactions that make the offer feel friendly.</p>
+      <div class="swatches" aria-label="Palette: ultramarine, sorbet, lime, indigo ink"><i style="background:#2e2bd9"></i><i style="background:#ffe1d0"></i><i style="background:#d6f36b"></i><i style="background:#17153b"></i></div>
+      <dl>
+        <dt>Feels like</dt><dd>A modern direct-to-consumer brand, bold and warm</dd>
+        <dt>Type</dt><dd>Bricolage Grotesque for headlines, Rubik for text</dd>
+        <dt>Signature</dt><dd>Bento tiles: a dose ladder that grows, a live coach chat, an “insurance required” switch that refuses to turn on</dd>
+        <dt>Effort</dt><dd>Medium. Best with new product renders.</dd>
+        <dt>Watch out</dt><dd>A real rebrand: the palette moves away from today’s navy</dd>
+      </dl>
+      <ul class="skills" aria-label="Skills">
+        <li>UI UX Pro Max: Bento Box Grid style, Startup Bold type</li>
+        <li>Frontend Design</li>
+        <li>CSS Animations</li>
+        <li>Make Interfaces Feel Better</li>
+        <li class="later">Full build: Higgsfield or Bloom for 3D renders</li>
+      </ul>
+      <div class="actions"><a class="btn" href="b-big-color/">Open prototype</a></div>
+    </div>
+  </article>
+
+  <article class="dir" id="c" aria-labelledby="c-title">
+    <div class="shots">
+      <img class="desk" src="shots/c-six-months-hero.webp" width="1200" height="750" alt="Direction C home page: dark aurora background with the headline Six months from now" loading="lazy">
+      <img class="mob" src="shots/c-six-months-mobile.webp" width="360" height="800" alt="Direction C on a phone" loading="lazy">
+    </div>
+    <div class="info">
+      <p class="letter">Direction C</p>
+      <h2 id="c-title">Six Months</h2>
+      <p class="idea">A cinematic scroll story. You scroll through months one to six: the month counter and dose ring change, while the price stays pinned on screen and never moves.</p>
+      <div class="swatches" aria-label="Palette: night blue, gold, teal, violet"><i style="background:#0b1324"></i><i style="background:#f4c35a"></i><i style="background:#2cc5b5"></i><i style="background:#6d5bf5"></i></div>
+      <dl>
+        <dt>Feels like</dt><dd>A product launch film. Dark, dramatic, memorable.</dd>
+        <dt>Type</dt><dd>Bebas Neue for display, Source Sans 3 for text</dd>
+        <dt>Signature</dt><dd>Pinned, scroll-driven journey with snap points and a fixed price bar</dd>
+        <dt>Effort</dt><dd>High. Motion needs testing on older phones.</dd>
+        <dt>Watch out</dt><dd>Strong as a campaign page; heavy as the whole site. Reduced-motion version included.</dd>
+      </dl>
+      <ul class="skills" aria-label="Skills">
+        <li>UI UX Pro Max: Parallax Storytelling, Bold Statement type, GSAP preset</li>
+        <li>GSAP ScrollTrigger</li>
+        <li>Frontend Design</li>
+        <li class="later">Full build: GSAP Text, Web Animation Design, AnimatedWebs backgrounds</li>
+      </ul>
+      <div class="actions"><a class="btn" href="c-six-months/">Open prototype</a></div>
+    </div>
+  </article>
+
+  <article class="dir" id="d" aria-labelledby="d-title">
+    <div class="shots">
+      <img class="desk" src="shots/d-plan-builder.webp" width="1200" height="750" alt="Direction D home page: a plan builder with controls, four key numbers and a month-by-month chart" loading="lazy">
+      <img class="mob" src="shots/d-plan-builder-mobile.webp" width="360" height="800" alt="Direction D on a phone" loading="lazy">
+    </div>
+    <div class="info">
+      <p class="letter">Direction D</p>
+      <h2 id="d-title">Plan Builder</h2>
+      <p class="idea">The home page is a tool. Pick a medication and your weight, and see your whole plan: dose steps, an illustrative goal path, delivery dates and the total cost.</p>
+      <div class="swatches" aria-label="Palette: cobalt, cool grey, mint, amber"><i style="background:#2448f5"></i><i style="background:#f3f5f9"></i><i style="background:#0e9f6e"></i><i style="background:#d98a04"></i></div>
+      <dl>
+        <dt>Feels like</dt><dd>A fintech or health app. Clear, product-led, numbers first.</dd>
+        <dt>Type</dt><dd>Manrope, with tabular numbers</dd>
+        <dt>Signature</dt><dd>Live chart with a month scrubber, real delivery dates from today, running cost</dd>
+        <dt>Effort</dt><dd>Medium to high</dd>
+        <dt>Watch out</dt><dd>The goal path must never read as a promise; legal review of the wording</dd>
+      </dl>
+      <ul class="skills" aria-label="Skills">
+        <li>UI UX Pro Max: data dashboard style, chart guidance</li>
+        <li>Frontend Design</li>
+        <li class="later">Full build: Dataviz, Interaction Design, A11y Enforcer</li>
+      </ul>
+      <div class="actions"><a class="btn" href="d-plan-builder/">Open prototype</a></div>
+    </div>
+  </article>
+
+  <section class="section" id="compare" aria-labelledby="compare-title">
+    <h2 id="compare-title">Side by side</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Direction</th><th>How it sells</th><th>Brand change</th><th>Motion</th><th>Effort</th></tr></thead>
+        <tbody>
+          <tr><td><b>A. Itemized</b></td><td>Trust through radical transparency</td><td>New look, same values</td><td>Low</td><td>Low to medium</td></tr>
+          <tr><td><b>B. Big Color</b></td><td>Friendly, energetic consumer appeal</td><td>Full rebrand</td><td>Medium</td><td>Medium</td></tr>
+          <tr><td><b>C. Six Months</b></td><td>Emotion and story, memorable</td><td>New look, dark</td><td>High</td><td>High</td></tr>
+          <tr><td><b>D. Plan Builder</b></td><td>Lets people try before they start</td><td>Neutral, product-led</td><td>Low</td><td>Medium to high</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="more" aria-labelledby="more-title">
+    <h2 id="more-title">More we can add with other skills</h2>
+    <ul class="extras">
+      <li><h3>New photography and 3D product renders</h3><p>Generate original lifestyle images and vial renders in the chosen palette, instead of today’s stock-style photos.</p><p class="need">Higgsfield or Bloom. Uses image credits, needs your OK.</p></li>
+      <li><h3>Cinematic video or WebGL hero</h3><p>A looping video or live gradient background for direction C or B.</p><p class="need">AnimatedWebs. The connector needs you to sign in again.</p></li>
+      <li><h3>A Figma file of the chosen direction</h3><p>Pages and components in Figma, so a designer can keep working on it.</p><p class="need">Figma connector</p></li>
+      <li><h3>Mix and match</h3><p>For example A as the main site, D’s builder on the pricing page and C as a launch campaign page.</p><p class="need">No extra tools</p></li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="rec-title">
+    <div class="rec">
+      <h2 id="rec-title">Recommendation</h2>
+      <p><b>A (Itemized) as the main site, with D’s plan builder on the pricing page.</b> Together they answer the two questions skeptical visitors have, “what does it really cost?” and “what will my plan look like?”, and both are cheap to keep accurate. Keep C for a campaign page if marketing wants something cinematic.</p>
+    </div>
+  </section>
+</main>
+<footer class="wrap">Version 1 (the current build, which keeps today’s look) is still at <a href="../">the site root</a>. These prototypes are for review only and are not linked from the site.</footer>
+</body>
+</html>
