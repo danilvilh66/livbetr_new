@@ -1,0 +1,53 @@
+/* Motion that needs no JavaScript. Everything here is gated by .motion, which the
+   pre-paint script adds only when the visitor allows motion. */
+
+@keyframes rise { from { opacity: 0; translate: 0 16px; } }
+@keyframes word-in { from { translate: 0 105%; } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes drift-a { 50% { transform: translate3d(8vmax, 6vmax, 0) scale(1.08); } }
+@keyframes drift-b { 50% { transform: translate3d(-10vmax, 8vmax, 0) scale(0.94); } }
+@keyframes drift-c { 50% { transform: translate3d(6vmax, -8vmax, 0) scale(1.1); } }
+
+/* Headings split at build time: each word rises out of its own mask. */
+.sw { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.04em; margin-bottom: -0.04em; }
+.sw__i { display: inline-block; }
+.motion .hero-split .sw__i { animation: word-in 0.9s var(--ease-out) both; animation-delay: calc(var(--i) * 60ms); }
+.motion .hero-split br ~ .sw .sw__i { animation-delay: calc(var(--i) * 60ms + 160ms); }
+
+.motion .hero__rating { animation: rise 0.8s var(--ease-out) 0.1s both; }
+.motion .hero__bottom > *, .motion .page-hero__inner > :not(h1):not(.big-404) { animation: rise 0.9s var(--ease-out) both; animation-delay: 0.55s; }
+.motion .hero__bottom > :nth-child(2) { animation-delay: 0.65s; }
+.motion .hero__bottom > :nth-child(3) { animation-delay: 0.75s; }
+.motion .hero__person { animation: fade-in 1.6s var(--ease-out) 0.2s both; }
+.motion .big-404 { animation: fade-in 1.2s var(--ease-out) both; }
+
+.motion .aurora i { animation: drift-a 26s var(--ease-in-out) infinite; }
+.motion .aurora i:nth-child(2) { animation-name: drift-b; animation-duration: 32s; }
+.motion .aurora i:nth-child(3) { animation-name: drift-c; animation-duration: 38s; }
+.aurora.is-paused i { animation-play-state: paused; }
+
+/* Details content animates open where the browser supports it. */
+@supports selector(::details-content) {
+  .motion .faq::details-content { block-size: 0; overflow: hidden; transition: block-size var(--dur-3) var(--ease-out), content-visibility var(--dur-3) allow-discrete; }
+  .motion .faq[open]::details-content { block-size: auto; }
+}
+@supports (interpolate-size: allow-keywords) { :root { interpolate-size: allow-keywords; } }
+
+/* Cross-document page transitions (progressive: Chromium today). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-header; }
+  ::view-transition-old(root) { animation: 260ms var(--ease-in-out) both vt-out; }
+  ::view-transition-new(root) { animation: 420ms var(--ease-out) both vt-in; }
+}
+@keyframes vt-out { to { opacity: 0; transform: translateY(-12px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(16px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  .promo, .site-header, .mobile-menu, .hud, .aurora, .final, .scroll-cue, .btn { display: none !important; }
+  body, html { background: #fff; color: #000; }
+}

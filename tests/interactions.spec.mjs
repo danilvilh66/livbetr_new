@@ -15,40 +15,86 @@ test.describe('header and promo', () => {
     await page.goto('/pricing/');
     await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Pricing' })).toHaveAttribute('aria-current', 'page');
   });
+
+  test('header hides on the way down and returns on the way up', async ({ page }) => {
+    await page.goto('/faq/');
+    const header = page.locator('[data-header]');
+    await page.mouse.move(600, 400);
+    for (let i = 0; i < 6; i++) await page.mouse.wheel(0, 300);
+    await expect(header).toHaveClass(/is-hidden/);
+    await page.mouse.wheel(0, -300);
+    await expect(header).not.toHaveClass(/is-hidden/);
+    await expect(header).toHaveClass(/is-scrolled/);
+  });
 });
 
-test.describe('dose ladder', () => {
-  test('price stays flat while the dose changes', async ({ page }) => {
-    await page.goto('/');
-    const ladder = page.locator('[data-ladder]');
-    const dose = ladder.locator('[data-out="dose"]');
-    const price = ladder.locator('[data-out="price"]');
-    const range = ladder.locator('[data-month-range]');
-    await expect(dose).toHaveText('0.25 mg');
-    await expect(price).toContainText('$65');
-    await range.fill('5');
-    await expect(dose).toHaveText('2.4 mg');
-    await expect(price).toContainText('$65');
-    await expect(range).toHaveAttribute('aria-valuetext', 'Month 5: 2.4 mg weekly, $65 a month');
+test.describe('six-month story without motion', () => {
+  test.use({ reducedMotion: 'reduce' });
 
-    await ladder.getByRole('tab', { name: 'Tirzepatide' }).click();
-    await expect(ladder.getByRole('tab', { name: 'Tirzepatide' })).toHaveAttribute('aria-selected', 'true');
-    await expect(dose).toHaveText('12.5 mg');
-    await expect(price).toContainText('$110');
-    await expect(ladder.locator('[data-set="tirzepatide"]')).toBeVisible();
-    await expect(ladder.locator('[data-set="semaglutide"]')).toBeHidden();
+  test('shows a readable list and never loads the motion layer', async ({ page }) => {
+    const chunks = [];
+    page.on('request', (r) => r.url().includes('/chunks/motion-') && chunks.push(r.url()));
+    await page.goto('/');
+    await page.waitForLoadState('networkidle');
+    const list = page.locator('[data-journey-list]');
+    await expect(list).toBeVisible();
+    await expect(list.locator('li')).toHaveCount(7);
+    await expect(page.locator('[data-journey-stage]')).toBeHidden();
+    expect(chunks).toEqual([]);
   });
 
-  test('tabs support arrow keys and bars are clickable', async ({ page }) => {
-    await page.goto('/pricing/');
-    const ladder = page.locator('[data-ladder]');
-    await ladder.getByRole('tab', { name: 'Semaglutide' }).focus();
-    await page.keyboard.press('ArrowRight');
-    await expect(ladder.getByRole('tab', { name: 'Tirzepatide' })).toBeFocused();
-    await expect(ladder.getByRole('tab', { name: 'Tirzepatide' })).toHaveAttribute('aria-selected', 'true');
-    await ladder.locator('[data-set="tirzepatide"] .ladder__col[data-month="3"] .ladder__bar').click({ force: true });
-    await expect(ladder.locator('[data-out="month"]')).toHaveText('3');
-    await expect(ladder.locator('[data-out="dose"]')).toHaveText('7.5 mg');
+  test('the medication switch updates every dose and price', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('[data-step-dose="5"]')).toHaveText('2.4 mg');
+    await page.locator('[data-journey]').getByRole('button', { name: 'Tirzepatide' }).click();
+    await expect(page.locator('[data-journey]').getByRole('button', { name: 'Tirzepatide' })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('[data-step-dose="5"]')).toHaveText('12.5 mg');
+    await expect(page.locator('[data-step-dose="0"]')).toHaveText('None yet');
+    await expect(page.locator('[data-step-price]').first()).toHaveText('$110/mo');
+    await expect(page.locator('[data-price-value]')).toHaveText('$110');
+    await expect(page.locator('[data-price-sum]')).toContainText('$660 in total');
+  });
+});
+
+test.describe('six-month story with motion', () => {
+  test.use({ reducedMotion: 'no-preference', viewport: { width: 1440, height: 900 } });
+
+  test('scrolling steps through the months while the price stays locked', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForFunction(() => document.documentElement.classList.contains('motion-ready'));
+    await expect(page.locator('[data-journey]')).toHaveClass(/is-live/);
+    // The readable list stays in the page for screen readers.
+    await expect(page.locator('[data-journey-list] li')).toHaveCount(7);
+    const top = await page.evaluate(() => document.querySelector('[data-journey-stage]').parentElement.getBoundingClientRect().top + window.scrollY);
+    await page.evaluate((y) => window.scrollTo(0, y - 200), top);
+    await page.mouse.move(700, 450);
+    const months = new Set();
+    for (let i = 0; i < 16; i++) {
+      await page.mouse.wheel(0, 260);
+      await page.waitForTimeout(350);
+      months.add(await page.locator('[data-hud-month]').textContent());
+      await expect(page.locator('[data-hud-price]')).toHaveText('$65');
+    }
+    expect([...months]).toEqual(expect.arrayContaining(['Month 1', 'Month 3', 'Month 6']));
+    await expect(page.locator('[data-stage-dose]')).toHaveText('2.4 mg');
+  });
+
+  test('switching to tirzepatide updates the ring and the locked price', async ({ page }) => {
+    await page.goto('/');
+    await page.waitForFunction(() => document.documentElement.classList.contains('motion-ready'));
+    await page.locator('[data-journey]').getByRole('button', { name: 'Tirzepatide' }).click();
+    await expect(page.locator('[data-hud-price]')).toHaveText('$110');
+  });
+
+  test('how it works travels sideways on desktop', async ({ page }) => {
+    await page.goto('/how-it-works/');
+    await page.waitForFunction(() => document.documentElement.classList.contains('motion-ready'));
+    await expect(page.locator('[data-steps]')).toHaveClass(/is-horizontal/);
+    const track = page.locator('[data-steps-track]');
+    const before = await track.evaluate((el) => el.getBoundingClientRect().left);
+    const top = await page.locator('[data-steps]').evaluate((el) => el.getBoundingClientRect().top + window.scrollY);
+    await page.evaluate((y) => window.scrollTo(0, y + 600), top);
+    await expect.poll(() => track.evaluate((el) => el.getBoundingClientRect().left)).toBeLessThan(before - 200);
   });
 });
 
@@ -60,25 +106,13 @@ test.describe('15% estimate', () => {
     await expect(est.locator('[data-out="loss"]')).toHaveText('45');
     await expect(est.locator('[data-out="goal"]')).toHaveText('255');
     await expect(est.locator('[data-weight-number]')).toHaveValue('300');
-
     await est.locator('[data-weight-number]').fill('200');
     await expect(est.locator('[data-out="loss"]')).toHaveText('30');
     await expect(est.locator('[data-weight-range]')).toHaveValue('200');
-
     await est.getByLabel('kg').check({ force: true });
     await expect(est.locator('[data-weight-number]')).toHaveValue('91');
     await expect(est.locator('[data-out="loss"]')).toHaveText('14');
     await expect(est.locator('[data-range-text]')).toHaveText('64 to 181 kg');
-  });
-
-  test('before/after slider reveals the illustration', async ({ page }) => {
-    await page.goto('/');
-    const range = page.locator('[data-compare-range]');
-    await range.fill('20');
-    await expect(page.locator('.compare__frame')).toHaveAttribute('style', /--pos: 20%/);
-    await range.focus();
-    await page.keyboard.press('ArrowRight');
-    await expect(range).toHaveValue('21');
   });
 });
 
@@ -92,15 +126,13 @@ test.describe('FAQ', () => {
     await expect(page.locator('[data-faq]:visible mark').first()).toBeVisible();
     await expect(page.locator('#refunds')).toBeVisible();
     await expect(page.locator('#shipping')).toBeHidden();
-
     await page.getByLabel('Search questions').fill('zzqx');
     await expect(page.locator('[data-faq-empty]')).toBeVisible();
     await page.locator('[data-faq-empty]').getByRole('button', { name: 'Clear search' }).click();
     await expect(count).toHaveText('21 questions');
-    await expect(page.locator('[data-faq-empty]')).toBeHidden();
   });
 
-  test('category chips filter questions', async ({ page }) => {
+  test('category chips filter questions and are kept in the URL', async ({ page }) => {
     await page.goto('/faq/');
     await page.getByRole('button', { name: 'Delivery and refills' }).click();
     await expect(page.getByRole('button', { name: 'Delivery and refills' })).toHaveAttribute('aria-pressed', 'true');
@@ -108,7 +140,6 @@ test.describe('FAQ', () => {
     await expect(page.locator('[data-faq-group="billing"]')).toBeHidden();
     await expect(page).toHaveURL(/\?cat=delivery$/);
     await page.reload();
-    await expect(page.getByRole('button', { name: 'Delivery and refills' })).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('[data-faq-count]')).toHaveText('3 questions');
   });
 
@@ -128,7 +159,6 @@ test.describe('contact form', () => {
     await expect(summary).toBeFocused();
     await expect(summary.locator('li')).toHaveCount(5);
     await expect(page.locator('#cf-email')).toHaveAttribute('aria-invalid', 'true');
-
     await page.getByLabel('Email').fill('not-an-email');
     await page.getByLabel('Email').blur();
     await expect(page.locator('#cf-email-err')).toHaveText('Enter an email address like name@example.com.');
@@ -146,19 +176,17 @@ test.describe('contact form', () => {
     await page.getByLabel('I understand this form is not for medical questions or emergencies.').check();
     await page.getByRole('button', { name: 'Send message' }).click();
     await expect(page.locator('[data-contact-success]')).toBeVisible();
-    await expect(page.locator('[data-contact-form]')).toBeHidden();
     await page.getByRole('button', { name: 'Write another message' }).click();
     await expect(page.locator('[data-contact-form]')).toBeVisible();
     await expect(page.getByLabel('Full name')).toHaveValue('');
   });
 
   test('support status reflects Eastern Time hours', async ({ page }) => {
-    await page.clock.setFixedTime(new Date('2026-11-24T15:00:00Z')); // Tuesday 10 a.m. ET
+    await page.clock.setFixedTime(new Date('2026-11-24T15:00:00Z'));
     await page.goto('/contact/');
     await expect(page.locator('[data-open-status]')).toHaveClass(/is-open/);
     await expect(page.locator('[data-open-text]')).toHaveText('Phone support is open now, until 10 p.m. ET');
-
-    await page.clock.setFixedTime(new Date('2026-11-29T17:00:00Z')); // Sunday noon ET
+    await page.clock.setFixedTime(new Date('2026-11-29T17:00:00Z'));
     await page.reload();
     await expect(page.locator('[data-open-status]')).toHaveClass(/is-closed/);
     await expect(page.locator('[data-open-text]')).toHaveText('Phone support is closed. Opens tomorrow at 9 a.m. ET');

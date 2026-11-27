@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/bebas-neue-latin-400.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url(../fonts/source-sans-3-latin-var.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url(../fonts/source-sans-3-latin-var-italic.woff2) format('woff2');
+}
+/* Metric-matched fallbacks keep layout steady while fonts load. */
+@font-face { font-family: 'Bebas Fallback'; src: local('Impact'), local('Arial Narrow Bold'), local('Arial'); size-adjust: 84%; ascent-override: 105%; descent-override: 25%; }
+@font-face { font-family: 'Source Sans Fallback'; src: local('Arial'); size-adjust: 94%; ascent-override: 104%; descent-override: 29%; line-gap-override: 0%; }
+
+:root {
+  color-scheme: dark;
+
+  /* Palette: night sky, aurora, and one gold for the price that never moves. */
+  --night: #0b1324;
+  --night-2: #101b31;
+  --night-3: #17243f;
+  --night-4: #1f2f52;
+  --deep: #070c18;
+  --text: #eef2f8;
+  --muted: #a9b4c7;
+  --dim: #8592a8;
+  --line: rgba(238, 242, 248, 0.12);
+  --line-2: rgba(238, 242, 248, 0.22);
+  --gold: #f4c35a;
+  --gold-2: #ffd47e;
+  --teal: #2cc5b5;
+  --violet: #8b7bff;
+  --rose: #f27493;
+  --danger: #ff7b7b;
+  --danger-bg: rgba(255, 123, 123, 0.1);
+  --success: #3ddc97;
+  --focus: #8ec5ff;
+  --sema: var(--teal);
+  --tirz: var(--violet);
+
+  /* Type */
+  --display: 'Bebas Neue', 'Bebas Fallback', Impact, 'Arial Narrow', sans-serif;
+  --body: 'Source Sans 3', 'Source Sans Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-hero: clamp(5.5rem, 3rem + 13vw, 16rem);
+  --fs-1: clamp(4rem, 2.6rem + 7vw, 9rem);
+  --fs-2: clamp(3rem, 2rem + 4.6vw, 6.5rem);
+  --fs-3: clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem);
+  --fs-lead: clamp(1.15rem, 1rem + 0.45vw, 1.4rem);
+  --fs-body: 1.125rem;
+  --fs-sm: 1rem;
+  --fs-xs: 0.875rem;
+
+  /* Space and shape */
+  --gutter: clamp(18px, 4vw, 48px);
+  --max: 1280px;
+  --section: clamp(88px, 11vw, 168px);
+  --section-tight: clamp(48px, 6vw, 88px);
+  --header-h: 76px;
+  --r-xl: 32px;
+  --r-lg: 24px;
+  --r-md: 16px;
+  --r-sm: 12px;
+  --pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 160ms;
+  --dur-2: 280ms;
+  --dur-3: 520ms;
+}

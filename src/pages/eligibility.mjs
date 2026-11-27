@@ -21,7 +21,7 @@ const stepShell = (id, n, question, help, inner) => `<fieldset class="quiz__step
   <p class="field__error" id="q-${id}-err" role="alert" hidden></p>
 </fieldset>`;
 
-export const render = (root) => {
+export const render = (_root) => {
   const steps = [
     stepShell('goal', 1, 'How much weight would you like to lose?', 'This helps your clinician understand your goals. There are no wrong answers.',
       `<div class="options options--2">

@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const pages = [
-  { path: '/', h1: 'Weight-loss care, priced honestly.' },
-  { path: '/how-it-works/', h1: 'From eligibility check to your front door' },
-  { path: '/pricing/', h1: 'One monthly price. Every dose.' },
+  { path: '/', h1: 'Six months from now.' },
+  { path: '/how-it-works/', h1: 'From first question to your door' },
+  { path: '/pricing/', h1: 'One price. Every dose.' },
   { path: '/eligibility/', h1: 'See if GLP-1 medication could be right for you' },
   { path: '/faq/', h1: 'Questions, answered plainly' },
   { path: '/contact/', h1: 'Let’s get you the right help' },
@@ -42,6 +42,10 @@ for (const p of pages) {
 
     test('has no WCAG 2.2 AA accessibility violations', async ({ page }) => {
       await page.goto(p.path);
+      // Measure the settled page, not an entrance animation halfway through.
+      await page.evaluate(() =>
+        Promise.all(document.getAnimations().filter((a) => a.effect?.getTiming().iterations !== Infinity).map((a) => a.finished.catch(() => {}))),
+      );
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
       const summary = results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`);
       expect(summary).toEqual([]);

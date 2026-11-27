@@ -284,6 +284,21 @@ export const usStates = [
   ['WV', 'West Virginia'], ['WI', 'Wisconsin'], ['WY', 'Wyoming'],
 ];
 
+// The six-month story on the home page. Index 0 is day one; index n is month n.
+// It describes the process only, never an outcome.
+export const journey = [
+  { label: 'Day 1', title: 'Check and review', text: 'A 3-minute eligibility check, then a licensed clinician reviews your answers. Same-day slots.' },
+  { label: 'Month 1', title: 'Starting dose', text: 'Your first box arrives in plain packaging. Your coach checks in during week one.' },
+  { label: 'Month 2', title: 'First step up', text: 'Check-ins show how you feel. Your clinician raises the dose when you’re ready.' },
+  { label: 'Month 3', title: 'Settling in', text: 'Your refill ships before you run out. Questions go to your care team, one message away.' },
+  { label: 'Month 4', title: 'Adjusting', text: 'The dose changes again if your clinician says so. The price doesn’t.' },
+  { label: 'Month 5', title: 'Habits', text: 'Your coach helps with the routines that make the change stick.' },
+  { label: 'Month 6', title: 'Six months in', text: 'Same plan, same team, and the same price you started with.' },
+];
+
+// Weekly dose for a journey step: none on day one, then the example schedule.
+export const doseFor = (treatment, step) => (step === 0 ? null : treatment.doses[step - 1].mg);
+
 export const intakeHref = (treatment) => {
   const params = new URLSearchParams({ utm_source: 'website' });
   if (treatment) params.set('treatment', treatment);

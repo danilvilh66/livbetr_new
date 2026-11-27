@@ -1,45 +1,47 @@
-# Livbetr design notes
+# Livbetr design: “Six Months”
 
-## The brief, in one line
+## The idea
 
-Help a cost-conscious, possibly skeptical adult decide in under a minute that Livbetr is legitimate, affordable and safe enough to start a 3-minute eligibility check.
+Livbetr’s real difference is that the price doesn’t change when the dose does. The site tells that as a short film: you scroll through your first six months, the month counter rolls, the dose ring fills, and one thing never moves, the gold price pinned at the bottom of the screen.
 
-## The idea: price is the protagonist
+This direction was chosen from four prototypes (see `/concepts/`).
 
-Livbetr's real difference is that the price does not change when the dose does. GLP-1 treatment steps up month by month, so the site shows exactly that: a **dose ladder** where bars climb and the price line stays flat. It's the one bold element. Everything around it stays quiet.
-
-The hero repeats the idea with a literal price tag ("priced honestly") hanging off the photo.
-
-## How the direction was chosen
-
-1. **UI UX Pro Max** (`design-system/livbetr/MASTER.md`) for the telemedicine category returned: Trust & Authority + Conversion landing pattern, Minimalism/Swiss style, calm medical palette, 4.5:1 contrast, 44px targets, reduced motion. Its first, generic query suggested a black-and-gold luxury look, which was rejected as wrong for healthcare. That is why the query was narrowed to the product category.
-2. The **brand** already owns a deep ink teal (`#0B2E3E`) and a teal (`#0F7D78`), and the product photos have teal (semaglutide) and gold (tirzepatide) vial caps. Those became the product colour code used everywhere: ladder, plan cards, tables, quiz results.
-3. **Typography**: Figtree, from UI UX Pro Max's "Medical Clean" pairing. It is friendly and readable, and its numerals are strong for prices. Self-hosted variable font with a metric-matched fallback, so there is no layout shift and no third-party request.
-
-## Tokens
+## Look
 
 | Token | Value | Role |
 | --- | --- | --- |
-| Ink | `#0B2E3E` | Text, primary buttons, dark sections |
-| Lagoon | `#0F7D78` | Semaglutide, icons, progress |
-| Marigold | `#E0A020` | Tirzepatide, the flat price line, offer button |
-| Mist | `#E7F1EF` | Tinted sections and chips |
-| Ink soft | `#3D5B68` | Secondary text (7.25:1 on white) |
-| Danger | `#B42318` | Errors and emergency actions only |
+| Night | `#0B1324` | Page background |
+| Night 2 / 3 | `#101B31` / `#17243F` | Raised sections, cards |
+| Text | `#EEF2F8` | Body and headings |
+| Muted | `#A9B4C7` | Secondary text (9:1 on night) |
+| Gold | `#F4C35A` | The price, primary buttons, focus of attention |
+| Teal | `#2CC5B5` | Semaglutide |
+| Violet | `#8B7BFF` | Tirzepatide |
+| Rose | `#F27493` | Aurora light only |
 
-Type scale: hero 44 to 88px, H1 36 to 60, H2 30 to 48, H3 20 to 24, body 17, small 13. Radius follows hierarchy: 32 media and big cards, 24 cards, 16 inner, pill for controls.
+- **Type:** Bebas Neue for display (headlines, numbers), Source Sans 3 for text. Both self-hosted with metric-matched fallbacks, so nothing shifts while fonts load.
+- **Light:** three blurred “aurora” lights drift slowly behind key sections. They pause off screen and stop for reduced motion.
+- **Product color code:** teal for semaglutide, violet for tirzepatide, everywhere: switches, plan cards, the comparison table, eligibility results.
 
-## Rules the build follows
+## Motion language
 
-- One orchestrated motion moment per page (hero entrance, ladder bars growing). Nothing else animates on its own. All motion is off under `prefers-reduced-motion`.
-- Every interactive feature works with keyboard and screen readers: tabs with arrow keys, ranges with `aria-valuetext`, error summaries that take focus, a focus-trapped mobile menu.
-- No claims the business can't back up. Reviews are verbatim from Trustpilot, illustrations are labelled as illustrations, compounded medications are labelled as not FDA-approved, and the eligibility check never promises approval.
-- Health answers in the eligibility check stay in `sessionStorage` on the visitor's device and are never sent anywhere by this site.
+| Moment | What moves | How |
+| --- | --- | --- |
+| Page load | Headline words rise out of masks | CSS, split at build time |
+| Section headings | Lines rise as they enter | GSAP SplitText, masked lines |
+| Six-month story | Pinned stage: odometer, captions, dose ring, ticks; fixed price pill | ScrollTrigger pin + scrub, snaps one month at a time |
+| Price scene | The giant price settles, six month chips line up | Scrub + stagger |
+| How it works | Cards travel sideways (desktop) | Pinned horizontal scroll |
+| Media | Portrait and coach photo drift slightly | Scrubbed parallax |
+| Buttons | Primary buttons lean toward the pointer | `quickTo`, fine pointers only |
+| Pages | Cross-fade between pages | View Transitions (progressive) |
+
+Rules: transform and opacity only; nothing hidden until the motion layer runs; content readable without it; every effect reverts when reduced motion is turned on.
 
 ## Skills used
 
-- **ui-ux-pro-max**: design-system generation, product, colour, typography and landing-pattern searches, pre-delivery checklist.
-- **frontend-design**: the distinct point of view (the ladder, the price tag) and avoiding templated choices.
-- **make-interfaces-feel-better**: concentric radii, tabular numbers, `text-wrap: balance`, press scale, no `transition: all`.
-- **a11y-enforcer**: static scan (0 issues), contrast checks on every colour pair, behaviour review.
-- **web-design-guidelines / web-review**: final review pass.
+- **UI UX Pro Max**: style categories (Parallax Storytelling), the “Bold Statement” type pairing, GSAP scroll presets, pre-delivery checklist.
+- **GSAP ScrollTrigger**: pinning, scrub, snapping, `matchMedia`, refresh and cleanup rules.
+- **Frontend Design**: one signature moment (the pinned price) instead of effects everywhere.
+- **Make Interfaces Feel Better**: tabular numbers, press feedback, no `transition: all`.
+- **A11y Enforcer** and **Web Interface Guidelines**: contrast on every pair, focus not obscured by the sticky header or the price pill, tap targets, reduced motion.
