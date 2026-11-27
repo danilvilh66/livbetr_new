@@ -1,0 +1,415 @@
+{
+ "title": "Refund, Cancellation &amp; Subscription Policy",
+ "updated": "",
+ "blocks": [
+  {
+   "t": "h2",
+   "html": "Important Billing Summary"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Payment is collected at checkout before clinical review. Payment does not guarantee approval, a prescription, a particular medication, dose, or treatment result.",
+    "The 21-Day Plan renews every 21 calendar days. It is not a calendar-month plan. If continuously active, up to 18 charges may occur during the first 365 days, including the initial checkout payment.",
+    "The 3-, 6-, and 12-Month Plans are prepaid in full. If automatic renewal is enabled, the full plan price is charged again on the next billing date disclosed at checkout and in your confirmation.",
+    "You may cancel automatic renewal at any time. Cancellation takes effect when submitted and stops future renewal charges. It does not automatically reverse a payment already processed or an order already accepted by a pharmacy.",
+    "Refund eligibility depends on the status of the current order. The key cutoff is whether the dispensing pharmacy has documented that it began preparing, compounding, filling, or dispensing the patient-specific prescription."
+   ]
+  },
+  {
+   "t": "h2",
+   "html": "1. Scope and Key Terms"
+  },
+  {
+   "t": "p",
+   "html": "This policy applies to Livbetr LLC (“Livbetr,” “we,” “us,” or “our”) purchases and subscription renewals made on or after the effective date above. Earlier purchases remain subject to the terms presented and accepted when those purchases were made."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Clinical Review</strong> means a licensed clinician's review of the information required to determine whether treatment is medically appropriate.",
+    "<strong>Medication Fulfillment Start</strong> means the dispensing pharmacy has documented that it began preparing, compounding, filling, or dispensing the patient-specific prescription. Mere electronic receipt, routing, or administrative acceptance of a prescription is not Medication Fulfillment Start.",
+    "<strong>Current Term</strong> means the plan period already paid for.",
+    "<strong>Renewal Term</strong> means the next plan period that will begin after the Current Term.",
+    "<strong>Billing Date</strong> means the calendar date on which we are authorized to submit the disclosed charge to your saved payment method."
+   ]
+  },
+  {
+   "t": "h2",
+   "html": "2. Payment and Clinical Review"
+  },
+  {
+   "t": "p",
+   "html": "Your selected plan price is charged at checkout so that your intake and order can be processed. The services included in your plan are described at checkout and may include clinical review, follow-up care, care-team support, and medication when prescribed."
+  },
+  {
+   "t": "p",
+   "html": "A licensed clinician—not Livbetr—decides whether treatment is medically appropriate. Payment does not guarantee approval or a prescription."
+  },
+  {
+   "t": "p",
+   "html": "If the initial clinician does not approve treatment, your full initial checkout payment will be refunded automatically within seven business days. An internal routing or pharmacy error will not eliminate this refund."
+  },
+  {
+   "t": "p",
+   "html": "If the clinician recommends a different treatment or a higher price, we will not process that order or charge the difference unless you first affirmatively accept it."
+  },
+  {
+   "t": "p",
+   "html": "If additional information, identity verification, laboratory testing, or a live visit is required, processing may pause until the requirement is completed. No medication will be ordered unless the applicable clinical requirements are satisfied."
+  },
+  {
+   "t": "p",
+   "html": "No renewal charge will be submitted while the initial Clinical Review remains incomplete or before treatment is approved. If requested intake information or verification is not completed within 30 calendar days after checkout, we may close the unprocessed order and will refund every objectively unearned amount. We will send a reminder before doing so."
+  },
+  {
+   "t": "h2",
+   "html": "3. Subscription Plans and Renewal Timing"
+  },
+  {
+   "t": "p",
+   "html": "The amount due today, renewal amount, renewal frequency or date, paid plan term, and cancellation terms displayed and affirmatively accepted at checkout control."
+  },
+  {
+   "t": "p",
+   "html": "Your confirmation and account must match those accepted terms. A later confirmation or account display cannot increase the price, accelerate billing, or add renewal terms without your new affirmative consent."
+  },
+  {
+   "t": "p",
+   "html": "A prepaid plan term begins on the treatment-start date stated in your confirmation after clinical approval. The confirmation will state the Current Term start and end dates, any earlier Billing Date, and the Renewal Term start date."
+  },
+  {
+   "t": "p",
+   "html": "An early renewal payment does not shorten the Current Term or authorize overlapping charges for the same treatment period."
+  },
+  {
+   "t": "h3",
+   "html": "Livbetr Subscription Billing and Renewal Schedule"
+  },
+  {
+   "t": "p",
+   "html": "<strong>21-Day Plan</strong>"
+  },
+  {
+   "t": "p",
+   "html": "<strong>3-Month Plan</strong>"
+  },
+  {
+   "t": "p",
+   "html": "<strong>6-Month Plan</strong>"
+  },
+  {
+   "t": "p",
+   "html": "<strong>12-Month Plan</strong>"
+  },
+  {
+   "t": "p",
+   "html": "A prepaid plan renews only if you separately and affirmatively enroll in automatic renewal at checkout. If you do not enroll, it ends at the close of its paid term."
+  },
+  {
+   "t": "p",
+   "html": "If you enroll, it renews for the same plan length at the disclosed price unless you cancel before the charge is submitted."
+  },
+  {
+   "t": "p",
+   "html": "Renewal charges for prepaid plans may be collected shortly before the next term begins to allow time for clinical and pharmacy processing. The next term begins after the Current Term."
+  },
+  {
+   "t": "p",
+   "html": "If a prepaid plan is advertised using a “per month” amount, that figure is only the total prepaid price divided by the number of months. It does not mean the plan is billed monthly."
+  },
+  {
+   "t": "h2",
+   "html": "4. Automatic-Renewal Authorization and Notices"
+  },
+  {
+   "t": "p",
+   "html": "By separately accepting the recurring-payment terms at checkout, you authorize Livbetr to charge the payment method on file for the amount and frequency shown for your selected plan until you cancel automatic renewal."
+  },
+  {
+   "t": "p",
+   "html": "After checkout, we will provide a retainable confirmation identifying the plan, amount paid, recurring amount and frequency, Current Term dates, next Billing Date, Renewal Term start date, card-statement descriptor, and direct cancellation methods."
+  },
+  {
+   "t": "p",
+   "html": "We will send a reminder at least seven days before each 21-Day or 3-Month Plan charge and at least 15 days before each 6-Month Plan charge."
+  },
+  {
+   "t": "p",
+   "html": "For a 12-Month Plan, we will send notice 30 days before the Billing Date and a courtesy reminder seven days before it."
+  },
+  {
+   "t": "p",
+   "html": "We will also send annual, promotional-price, fee-change, and material-change notices when required by applicable law. Each notice will state the exact amount and date and include a direct cancellation method."
+  },
+  {
+   "t": "p",
+   "html": "Keep your email address, telephone number, payment method, and account information current."
+  },
+  {
+   "t": "p",
+   "html": "We will not charge a higher recurring price or use a different billing cadence without your prior affirmative authorization, except when an introductory price and the later renewal price were both expressly accepted at checkout."
+  },
+  {
+   "t": "p",
+   "html": "We retain verification of recurring-payment consent, including the accepted disclosure version, timestamp, plan, amount, and frequency, for at least three years or one year after termination, whichever is longer."
+  },
+  {
+   "t": "h2",
+   "html": "5. How to Cancel Automatic Renewal"
+  },
+  {
+   "t": "p",
+   "html": "You may cancel automatic renewal at any time using any of these methods:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Online email cancellation:</strong> Send the <a href=\"mailto:support@livbetr.com?subject=Cancel%20my%20subscription&amp;body=Please%20cancel%20my%20subscription.\">preformatted cancellation email</a>. You are not required to add information or speak with an agent.",
+    "<strong>Patient portal:</strong> Send a message stating, “Cancel my subscription.” A cancellation request submitted through a published Livbetr support channel will be honored when received.",
+    "<strong>Telephone:</strong> <a href=\"tel:+18886649435\">Call 1-888-664-9435</a> and state that you want to cancel. A voicemail clearly requesting cancellation will be treated as a cancellation request."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Your cancellation is effective at the timestamp our system receives the online request, email, telephone request, or voicemail. No retention conversation or administrative approval is required."
+  },
+  {
+   "t": "p",
+   "html": "Online and email submissions receive an immediate automated receipt; final confirmation is sent within one business day."
+  },
+  {
+   "t": "p",
+   "html": "A request received before a scheduled charge is actually submitted will stop that charge. If the charge was already submitted before cancellation became effective, cancellation stops later renewals and the current payment is reviewed under the refund rules below."
+  },
+  {
+   "t": "h3",
+   "html": "Canceling Automatic Renewal Does Not Automatically:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Refund a payment already processed;",
+    "Cancel a prescription or order that has received Medication Fulfillment Start;",
+    "End the Current Term of a prepaid plan; or",
+    "Tell your clinician to discontinue treatment."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "If you want to stop using medication, contact your prescribing clinician through the patient portal. Do not discontinue prescribed treatment solely because you canceled billing without first obtaining appropriate medical guidance."
+  },
+  {
+   "t": "p",
+   "html": "A canceled subscription will not be reactivated without your new affirmative authorization."
+  },
+  {
+   "t": "h2",
+   "html": "6. Refund Eligibility"
+  },
+  {
+   "t": "p",
+   "html": "Except where applicable law requires otherwise, the following rules apply:"
+  },
+  {
+   "t": "h3",
+   "html": "Refund Eligibility by Order Status"
+  },
+  {
+   "t": "p",
+   "html": "Initial clinician does not approve treatment"
+  },
+  {
+   "t": "p",
+   "html": "Cancellation after payment but before Medication Fulfillment Start"
+  },
+  {
+   "t": "p",
+   "html": "Cancellation after Medication Fulfillment Start"
+  },
+  {
+   "t": "p",
+   "html": "Charge submitted after an effective cancellation"
+  },
+  {
+   "t": "p",
+   "html": "Duplicate or incorrect Livbetr charge"
+  },
+  {
+   "t": "p",
+   "html": "Clinician later discontinues treatment for medical reasons"
+  },
+  {
+   "t": "p",
+   "html": "Lost, damaged, clinically unusable, or incorrect shipment caused by a pharmacy, carrier, or fulfillment error"
+  },
+  {
+   "t": "p",
+   "html": "Change of mind, unused medication, missed dose, dissatisfaction, or lack of desired results after Medication Fulfillment Start"
+  },
+  {
+   "t": "p",
+   "html": "Prescription medications cannot be returned to Livbetr for resale or reuse. Do not send medication back unless the dispensing pharmacy expressly instructs you to do so."
+  },
+  {
+   "t": "h2",
+   "html": "7. Prepaid 3-, 6-, and 12-Month Plans"
+  },
+  {
+   "t": "p",
+   "html": "Canceling automatic renewal stops the next prepaid-term charge but does not, by itself, terminate the Current Term. Scheduled services and shipments during the Current Term may continue, subject to updated clinical review, required check-ins, Medication Fulfillment Start, and medication availability."
+  },
+  {
+   "t": "p",
+   "html": "You may separately request early termination of the Current Term. This stops future fulfillment for which Medication Fulfillment Start has not occurred. It does not affect medication already being prepared, compounded, filled, dispensed, or shipped."
+  },
+  {
+   "t": "p",
+   "html": "Every prepaid month is allocated an equal share of the total plan price actually paid: the total prepaid price divided by 3, 6, or 12."
+  },
+  {
+   "t": "p",
+   "html": "The refundable unearned balance equals the shares allocated to future months for which no medication order or batch reached Medication Fulfillment Start, less any separately disclosed services already completed for those months."
+  },
+  {
+   "t": "p",
+   "html": "We will not reprice completed months at a higher rate or claw back the original discount. A pharmacy-started batch is allocated only to the months of supply identified for that batch."
+  },
+  {
+   "t": "h2",
+   "html": "8. Shipping, Damaged Items, and Delivery Problems"
+  },
+  {
+   "t": "p",
+   "html": "Medication ships after clinical approval and pharmacy processing. The shipment timeframe disclosed at checkout applies once you have submitted all information expressly identified at checkout as necessary to complete the order."
+  },
+  {
+   "t": "p",
+   "html": "We will not use an undisclosed internal event to restart or extend a promised shipping period."
+  },
+  {
+   "t": "p",
+   "html": "Inspect your shipment promptly. Contact <a href=\"mailto:support@livbetr.com\">support@livbetr.com</a> within seven calendar days after delivery if an item is missing, damaged, leaking, incorrect, or otherwise unusable."
+  },
+  {
+   "t": "p",
+   "html": "Report a temperature or packaging concern as soon as possible and before using the medication. We may request photographs of the product, label, packaging, and shipping container so the pharmacy or carrier can investigate."
+  },
+  {
+   "t": "p",
+   "html": "Reporting after seven days does not waive rights involving a defect that was not reasonably discoverable sooner or any right that cannot lawfully be waived."
+  },
+  {
+   "t": "p",
+   "html": "If tracking confirms delivery to the address you provided, theft, loss after delivery, or an incorrect address entered by you does not automatically qualify for a refund or replacement."
+  },
+  {
+   "t": "p",
+   "html": "We will review the circumstances and available carrier evidence. If Livbetr, the pharmacy, or the carrier caused the address or delivery error, we will coordinate an appropriate replacement or refund."
+  },
+  {
+   "t": "p",
+   "html": "If an order cannot ship within the time promised at purchase—or within the period required by applicable law when no specific time was promised—we will provide any required delay notice and an opportunity to consent to the delay or cancel the affected order for a prompt refund."
+  },
+  {
+   "t": "h2",
+   "html": "9. Treatment Outcomes and Side Effects"
+  },
+  {
+   "t": "p",
+   "html": "Individual outcomes vary. Livbetr does not guarantee approval, a prescription, a particular medication or dose, a specific amount of weight loss, or any other treatment result."
+  },
+  {
+   "t": "p",
+   "html": "Lack of a desired result by itself does not qualify an accepted pharmacy order for a refund."
+  },
+  {
+   "t": "p",
+   "html": "If you experience side effects or a change in your health, contact your prescribing clinician promptly. If the clinician directs that treatment be discontinued, any prepaid-plan refund will be evaluated under Section 7."
+  },
+  {
+   "t": "p",
+   "html": "For a medical emergency, call 911 or go to the nearest emergency room."
+  },
+  {
+   "t": "h2",
+   "html": "10. Pauses and Plan Changes"
+  },
+  {
+   "t": "p",
+   "html": "If a pause or plan change is offered, it is effective only after Livbetr confirms it in writing and provides the resulting Billing Date, price, and fulfillment schedule."
+  },
+  {
+   "t": "p",
+   "html": "A pause or change cannot reverse Medication Fulfillment Start or cancel an order already in process. Any new recurring amount or cadence requires the notice or affirmative authorization required by applicable law."
+  },
+  {
+   "t": "h2",
+   "html": "11. How to Request a Refund or Replacement"
+  },
+  {
+   "t": "p",
+   "html": "Contact us through the patient portal, call <a href=\"tel:+18886649435\">1-888-664-9435</a>, or email <a href=\"mailto:support@livbetr.com\">support@livbetr.com</a>."
+  },
+  {
+   "t": "p",
+   "html": "Please include your name, account email, order number or payment date, and a short description of the issue. Include photographs when reporting a damaged or incorrect shipment."
+  },
+  {
+   "t": "p",
+   "html": "You may request and receive a written copy of this policy."
+  },
+  {
+   "t": "p",
+   "html": "Approved refunds are returned to the original payment method. Livbetr submits an approved refund within seven business days, or sooner when applicable law requires, and sends a refund receipt."
+  },
+  {
+   "t": "p",
+   "html": "Your bank or card issuer determines when the credit appears on your statement."
+  },
+  {
+   "t": "h2",
+   "html": "12. Checkout Acknowledgment"
+  },
+  {
+   "t": "p",
+   "html": "By placing an order and separately accepting the recurring-payment terms, you acknowledge that:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Payment is collected before clinical review;",
+    "Approval and a prescription are not guaranteed;",
+    "You reviewed the amount due today, the future renewal amount, the exact billing frequency or date, and the paid plan term;",
+    "The 21-Day Plan renews every 21 calendar days and is not calendar-month billing;",
+    "The 3-, 6-, and 12-Month Plans are prepaid in full and renew for the same term only when you separately authorize automatic renewal at checkout;",
+    "You can cancel automatic renewal using the online, email, or telephone methods above; and",
+    "Refund eligibility changes after Medication Fulfillment Start."
+   ]
+  },
+  {
+   "t": "h2",
+   "html": "13. Legal Rights and Policy Updates"
+  },
+  {
+   "t": "p",
+   "html": "Nothing in this policy limits a consumer right that cannot lawfully be waived. If this policy conflicts with applicable law, the law controls."
+  },
+  {
+   "t": "p",
+   "html": "We may update this policy for future purchases. We will provide notice, obtain consent, or preserve existing terms when required before applying a material change to an active subscription."
+  },
+  {
+   "t": "h2",
+   "html": "14. Contact Information"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Livbetr LLC</strong> 66 W Flagler St Miami, FL 33130"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Phone:</strong> <a href=\"tel:+18886649435\">1-888-664-9435</a> <strong>Email:</strong> <a href=\"mailto:support@livbetr.com\">support@livbetr.com</a> <strong>Website:</strong> <a href=\"https://livbetr.com\">www.livbetr.com</a> <strong>Customer Support:</strong> Monday–Saturday, 9:00 a.m.–10:00 p.m. Eastern Time."
+  }
+ ]
+}

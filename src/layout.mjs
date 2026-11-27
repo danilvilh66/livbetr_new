@@ -59,7 +59,7 @@ const header = (root, active) => `<header class="site-header" data-header>
         .join('')}</ul>
     </nav>
     <div class="site-header__actions">
-      <a class="link-quiet hide-md" href="${site.portalUrl}" rel="noopener">Log in</a>
+      <a class="link-quiet hide-md" href="${root}login/">Log in</a>
       <a class="btn btn--gold btn--sm" href="${root}eligibility/" data-magnetic>Check eligibility</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
         <span class="visually-hidden" data-menu-label>Open menu</span>
@@ -78,7 +78,7 @@ const header = (root, active) => `<header class="site-header" data-header>
   </nav>
   <div class="mobile-menu__foot">
     <a class="btn btn--gold btn--block" href="${root}eligibility/">Check my eligibility</a>
-    <a class="btn btn--line btn--block" href="${site.portalUrl}" rel="noopener">Log in to the patient portal</a>
+    <a class="btn btn--line btn--block" href="${root}login/">Log in to the patient portal</a>
     <p>Questions? Call <a href="${site.phoneHref}">${site.phone}</a></p>
   </div>
 </div>`;
@@ -96,9 +96,9 @@ const footer = (root) => `<footer class="site-footer">
         <li><a href="${root}eligibility/">Eligibility check</a></li>
         <li><a href="${root}faq/">FAQ</a></li>
         <li><a href="${root}contact/">Contact</a></li>
-        <li><a href="${site.portalUrl}" rel="noopener">Patient portal</a></li>
+        <li><a href="${root}login/">Patient portal</a></li>
       </ul></nav>
-      <nav aria-label="Legal"><h2>Legal</h2><ul>${legalLinks.map((l) => `<li><a href="${l.href}" rel="noopener">${l.label}</a></li>`).join('')}</ul></nav>
+      <nav aria-label="Legal"><h2>Legal</h2><ul>${legalLinks.map((l) => `<li><a href="${root}${l.slug}/">${l.label}</a></li>`).join('')}</ul></nav>
       <div><h2>Get in touch</h2><ul class="site-footer__contact">
         <li><a href="${site.phoneHref}">${site.phone}</a></li>
         <li><a href="mailto:${site.email}">${site.email}</a></li>

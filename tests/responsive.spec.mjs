@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const paths = ['/', '/how-it-works/', '/pricing/', '/eligibility/', '/faq/', '/contact/'];
+const paths = ['/', '/how-it-works/', '/pricing/', '/eligibility/', '/faq/', '/contact/', '/start/', '/login/', '/terms/', '/telehealth-consent/'];
 
 for (const path of paths) {
   test(`no horizontal scrolling on ${path}`, async ({ page }) => {

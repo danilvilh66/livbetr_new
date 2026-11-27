@@ -57,7 +57,7 @@ ${pageHero({
     <ul class="help-cards__list">
       <li><span>${icon('phone', { size: 20 })}</span><div><h3>Call us</h3><p><a href="${site.phoneHref}">${site.phone}</a><br>${site.supportHours.days}, ${site.supportHours.time}</p></div></li>
       <li><span>${icon('mail', { size: 20 })}</span><div><h3>Email us</h3><p><a href="mailto:${site.email}">${site.email}</a><br>For billing, orders and your account</p></div></li>
-      <li><span>${icon('message', { size: 20 })}</span><div><h3>Message your care team</h3><p><a href="${site.portalUrl}" rel="noopener">Patient portal</a><br>For questions about your medication</p></div></li>
+      <li><span>${icon('message', { size: 20 })}</span><div><h3>Message your care team</h3><p><a href="${root}login/">Patient portal</a><br>For questions about your medication</p></div></li>
     </ul>
   </div>
 </section>

@@ -39,7 +39,7 @@ test.describe('eligibility check', () => {
     await expect(result.getByRole('heading', { level: 2 })).toHaveText('GLP-1 medication could be right for you');
     await expect(result.getByRole('heading', { level: 2 })).toBeFocused();
     await expect(result.locator('.result-plan.is-suggested h3')).toHaveText('Tirzepatide');
-    await expect(result.getByRole('link', { name: 'Continue with tirzepatide' })).toHaveAttribute('href', /intake\.livbetr\.com\/\?utm_source=website&treatment=tirzepatide/);
+    await expect(result.getByRole('link', { name: 'Continue with tirzepatide' })).toHaveAttribute('href', '../start/?treatment=tirzepatide');
     await expect(result).toContainText('Florida');
 
     // Progress survives a reload in the same session.

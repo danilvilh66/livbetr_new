@@ -8,6 +8,15 @@ const pages = [
   { path: '/eligibility/', h1: 'See if GLP-1 medication could be right for you' },
   { path: '/faq/', h1: 'Questions, answered plainly' },
   { path: '/contact/', h1: 'Let’s get you the right help' },
+  { path: '/start/', h1: 'Start your intake' },
+  { path: '/login/', h1: 'Welcome back' },
+  { path: '/terms/', h1: 'Terms & Conditions' },
+  { path: '/privacy-policy/', h1: 'Notice of Privacy Practices' },
+  { path: '/refund-policy/', h1: 'Refund, Cancellation & Subscription Policy' },
+  { path: '/glp-1-safety-information/', h1: 'GLP-1 Medication Safety Information' },
+  { path: '/telehealth-consent/', h1: 'OpenLoop Healthcare Partners, PC Telehealth Consent Form' },
+  { path: '/california-privacy-notice/', h1: 'Privacy Notice for California Residents' },
+  { path: '/consumer-bill-of-rights/', h1: 'Weight-Loss Consumer Bill of Rights' },
 ];
 
 for (const p of pages) {

@@ -47,7 +47,7 @@ ${stepsSection({ root })}
   <div class="wrap">
     ${sectionHead({ id: 'plans-title', title: 'Two medications. One price each.', lead: 'Both are compounded, prescribed only after a licensed clinician reviews your health history, and shipped every 4 weeks.' })}
     ${plans(root)}
-    <p class="fine center">Compounded medications are not FDA-approved. <a href="${site.url}/glp-1-safety-information" target="_blank" rel="noopener">Read the safety information<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+    <p class="fine center">Compounded medications are not FDA-approved. <a href="${root}glp-1-safety-information/">Read the safety information</a>.</p>
   </div>
 </section>
 

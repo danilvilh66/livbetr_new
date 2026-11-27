@@ -1,4 +1,3 @@
-import { site } from '../data.mjs';
 import { aurora } from '../components.mjs';
 import { splitWords } from '../layout.mjs';
 
@@ -27,7 +26,7 @@ export const render = (root) => ({
       <li><a href="${root}how-it-works/">How it works</a></li>
       <li><a href="${root}faq/">FAQ</a></li>
       <li><a href="${root}contact/">Contact</a></li>
-      <li><a href="${site.portalUrl}" rel="noopener">Patient portal</a></li>
+      <li><a href="${root}login/">Patient portal</a></li>
     </ul>
   </div>
 </section>`,

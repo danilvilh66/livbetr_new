@@ -105,6 +105,11 @@ export const initSpotlight = () => {
   });
 };
 
+// "Print or save as PDF" on legal pages.
+export const initPrint = () => {
+  $$('[data-print]').forEach((b) => b.addEventListener('click', () => window.print()));
+};
+
 // Opens a <details> answer when the URL points at it.
 export const openFromHash = () => {
   const id = decodeURIComponent(window.location.hash.slice(1));

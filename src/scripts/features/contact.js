@@ -90,7 +90,16 @@ export const initContactForm = () => {
     e.returnValue = '';
   });
 
-  form.addEventListener('submit', (e) => {
+  const showSuccess = (sent) => {
+    $('[data-success-mailto]', success).hidden = sent;
+    $('[data-success-sent]', success).hidden = !sent;
+    form.hidden = true;
+    success.hidden = false;
+    success.focus();
+  };
+
+  // With an endpoint configured the message is posted; otherwise it opens the email app.
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const errors = Object.keys(rules)
       .map((id) => ({ id, msg: validate(document.getElementById(id)) }))
@@ -104,15 +113,33 @@ export const initContactForm = () => {
     summary.hidden = true;
     const data = new FormData(form);
     const topic = $('#cf-topic option:checked', form).textContent;
+    if (form.dataset.endpoint) {
+      const submit = $('button[type="submit"]', form);
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...Object.fromEntries(data), topicLabel: topic }) });
+        if (!res.ok) throw new Error(`Contact endpoint answered ${res.status}`);
+        dirty = false;
+        showSuccess(true);
+      } catch (err) {
+        $('ul', summary).innerHTML = `<li>We couldn’t send your message. Try again, or email ${form.dataset.email}.</li>`;
+        summary.hidden = false;
+        summary.focus();
+        console.error(err);
+      } finally {
+        submit.disabled = false;
+        submit.textContent = 'Send message';
+      }
+      return;
+    }
     const body = [`Name: ${data.get('name')}`, `Email: ${data.get('email')}`, data.get('phone') ? `Phone: ${data.get('phone')}` : '', `Topic: ${topic}`, '', data.get('message')]
       .filter((l) => l !== '')
       .join('\n');
     dirty = false;
     lastMailto = `mailto:${form.dataset.email}?subject=${encodeURIComponent(`Website message: ${topic}`)}&body=${encodeURIComponent(body)}`;
     window.location.href = lastMailto;
-    form.hidden = true;
-    success.hidden = false;
-    success.focus();
+    showSuccess(false);
   });
   summary.addEventListener('click', (e) => {
     const link = e.target.closest('a[href^="#"]');

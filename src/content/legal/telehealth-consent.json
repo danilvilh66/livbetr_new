@@ -1,0 +1,422 @@
+{
+ "title": "OpenLoop Healthcare Partners, PC Telehealth Consent Form",
+ "updated": "September 24, 2025",
+ "blocks": [
+  {
+   "t": "p",
+   "html": "Last Updated: September 24, 2025"
+  },
+  {
+   "t": "p",
+   "html": "<strong>CONSENT TO TELEHEALTH, TREATMENT_SPECIFIC CONSENT, CONSENT TO TEXT OR EMAIL COMMUNICATION, AUTHORIZATION TO USE AND DISCLOSE MY MEDICAL INFORMATION, and ASSIGNMENT OF BENEFITS</strong>"
+  },
+  {
+   "t": "p",
+   "html": "OpenLoop Healthcare Partners, PC"
+  },
+  {
+   "t": "p",
+   "html": "OUR HEALTHCARE PROVIDERS DO NOT ADDRESS MEDICAL EMERGENCIES. IF YOU BELIEVE YOU ARE HAVING A MEDICAL EMERGENCY, YOU SHOULD DIAL 911 OR GO TO THE NEAREST EMERGENCY ROOM."
+  },
+  {
+   "t": "p",
+   "html": "BY CLICKING “I AGREE,” CHECKING A RELATED BOX TO SIGNIFY YOUR ACCEPTANCE, USING ANY OTHER ACCEPTANCE PROTOCOL PRESENTED THROUGH THE SERVICE OR OTHERWISE AFFIRMATIVELY ACCEPTING THIS CONSENT, YOU ACKNOWLEDGE THAT YOU HAVE READ, ACCEPTED, AND AGREED TO BE BOUND BY THIS CONSENT. IF YOU DO NOT AGREE TO THIS CONSENT, DO NOT CREATE AN ACCOUNT OR USE THE SERVICE. YOU HEREBY GRANT AGENCY AUTHORITY TO ANY PARTY WHO CLICKS ON THE “I AGREE” BUTTON OR OTHERWISE INDICATES ACCEPTANCE TO THIS CONSENT ON YOUR BEHALF."
+  },
+  {
+   "t": "h2",
+   "html": "CONSENT TO TELEHEALTH"
+  },
+  {
+   "t": "p",
+   "html": "Telehealth is a mode of delivering health care services via communication technologies to facilitate diagnosis, consultation, treatment, education, care management, and self management of a patient’s healthcare. The purpose of this consent form (“Consent”) is to provide you with information about telehealth and to obtain your informed consent to the use of telehealth in the delivery of healthcare and/or mental health services to you by physicians, physician assistants, nurse practitioners, and/or mental health professionals (“Providers”) using the online platforms owned and operated by OpenLoop and/or its affiliates and/or subsidiaries (the “Service”). In this Consent, the terms “you” and “yours” refer to the person using the Service, or in the case of a use of the Service by or on behalf of an individual minor between the ages of thirteen (13) and eighteen (18) or higher age of majority under applicable state law, “you” and “yours” refer to and include (i) the parent or legal guardian who provides consent to the use of the Service by such minor or uses the Service on behalf of such minor, and (ii) the minor for whom consent is being provided or on whose behalf the Service is being utilized."
+  },
+  {
+   "t": "p",
+   "html": "You are reviewing and acknowledging this Telehealth Consent Form because you are seeking Services from OpenLoop Healthcare Partners, PC and its affiliated entities (including but not limited to OpenLoop Healthcare Partners California, PC, OpenLoop Healthcare Partners Colorado, PC, OpenLoop Healthcare Partners New Jersey Professional Corporation, OpenLoop Healthcare Partners, Wisconsin, S.C) (collectively, the “Practice“) utilizing telehealth technologies facilitated through the OpenLoop Health Inc. website, iOS mobile app, web mobile app, or any partner platform, mobile app, or web mobile technologies (collectively, the “Platform”). This Telehealth Consent Form supplements but does not modify or supersede any Terms of Use, Privacy Policy, or Notice of Privacy Practices of OpenLoop Healthcare Partners, PC, OpenLoop Health Inc., or other healthcare providers offering services via the Platform."
+  },
+  {
+   "t": "p",
+   "html": "By clicking “I consent to telehealth” you indicate that you have reviewed this Telehealth Consent Form or had it explained to you, that you understand the risks and limitations of using telehealth technologies, that you have been given the opportunity to ask questions and that such questions have been answered to your satisfaction, that you have been given the opportunity to exercise your opt-out rights where appropriate, and that you consent to receiving the Services from licensed health care providers employed by or contracted with Practice (“Providers”) who are located at sites remote from you. If you would like to speak to our privacy team, please call 1(844) 819-7956 or email us at privacy@openloophealth.com"
+  },
+  {
+   "t": "h2",
+   "html": "SMS CONSENT"
+  },
+  {
+   "t": "p",
+   "html": "By checking this box, you agree to receive recurring automated marketing text messages (e.g. AI content, cart reminders) from Livbetr at the number you provide. Consent not a condition of purchase. We may share info with service providers per our Privacy Policy. Reply HELP for help &amp; STOP to cancel. Msg frequency varies. Msg &amp; data rates may apply."
+  },
+  {
+   "t": "h2",
+   "html": "TREATMENT-SPECIFIC CONSENT"
+  },
+  {
+   "t": "p",
+   "html": "By clicking “I consent to telehealth”, you understand and agree to the following:"
+  },
+  {
+   "t": "p",
+   "html": "1. I understand that Practice offers telehealth visits, which are conducted through videoconferencing, telephonic, and asynchronous technology and my Provider will not be present in the room with me."
+  },
+  {
+   "t": "p",
+   "html": "2. I am consenting to Practice importing and accessing my medical records and medical list, including prescription records."
+  },
+  {
+   "t": "p",
+   "html": "3. To protect the confidentiality of my health information, I agree to undertake my telehealth visit in a private location, and I understand that my Provider will similarly be in a private location. If any other individuals are present (e.g., for technological or translation assistance), I will be informed of the individual’s presence and such individual’s role, and I will be given the opportunity to consent to such individual’s presence."
+  },
+  {
+   "t": "p",
+   "html": "4. I understand there are potential risks to the use of telehealth technology, including but not limited to interruptions, delays, unauthorized access, other technical difficulties, data processing errors, AI misinterpretation, recording failures, and ambient listening inaccuracies. I understand that either my Provider or I can discontinue the telehealth appointment if the technical connections are not adequate for my visit. I AGREE TO HOLD HARMLESS PRACTICE AND ITS MANAGEMENT COMPANY, OPENLOOP HEALTH, INC., TOGETHER WITH THEIR EMPLOYEES, CONTRACTORS, AGENTS, DIRECTORS, MEMBERS, MANAGERS, SHAREHOLDERS, OFFICERS, REPRESENTATIVES, ASSIGNS, PREDECESSORS, AND SUCCESSORS, FOR DELAYS IN EVALUATION OR FOR INFORMATION LOST DUE TO SUCH TECHNICAL FAILURES OR FOR ANY ISSUES ARISING FROM THE USE OF AI TECHNOLOGIES, RECORDINGS, OR AMBIENT LISTENING SYSTEMS."
+  },
+  {
+   "t": "p",
+   "html": "5. I understand that my telehealth visit may involve the use of artificial intelligence (AI) technologies for various purposes, including but not limited to transcription of conversations, analysis of medical information, clinical decision support, quality assurance, and improvement of telehealth services. I understand that AI systems may process, analyze, and store information from my telehealth visit, including my voice, image, and medical information shared during the visit. AI processing may occur in real-time during my visit and/or after my visit has concluded. Information processed by AI systems will be protected in accordance with applicable privacy laws and Practice’s privacy policies and procedures. I have the right to request information about what AI technologies are being used during my care and how my information is being processed."
+  },
+  {
+   "t": "p",
+   "html": "6. I understand that, as part of my care, my Provider may use AI tools to assist with analyzing medical data or records, supporting clinical decision making, generating summaries or documentation, or recommending potential diagnoses or treatment options. AI tools are intended to support, not replace, the professional judgment of my Provider. I understand and acknowledge that my Provider will review any AI assisted outputs before making clinical decisions, and I have the right to ask questions about how AI is used in my care and to request that AI not be used in certain aspects of my treatment, where feasible."
+  },
+  {
+   "t": "p",
+   "html": "7. I understand that my telehealth visit may be recorded (audio and/or video) for purposes, including but not limited to quality assurance, provider training, clinical documentation, and care coordination. I understand that I will be notified at the beginning of any session that is being recorded. Recordings may be retained for a specified period of time in accordance with applicable laws and regulations, as well as Practice’s retention policies and procedures. I have the right to request access to recordings of my telehealth visits, subject to applicable laws, regulations, and the Practice’s policies and procedures."
+  },
+  {
+   "t": "p",
+   "html": "8. I understand that ambient listening technologies may be used during my telehealth visit to record the encounter, and that such technologies may include third parties contracted by Practice. These ambient listening technologies may be used to capture relevant clinical information that I share during the visit. I can request that ambient listening be disabled during portions of my visit by notifying my Provider. Information captured through ambient listening will be protected in accordance with applicable privacy laws and Practice policies. I have the right to know when ambient listening technologies are active during my visit."
+  },
+  {
+   "t": "p",
+   "html": "9. I understand that in some cases, my Provider might be a nurse practitioner or a physician assistant and not a physician."
+  },
+  {
+   "t": "p",
+   "html": "10. I understand that I could seek an in-office visit rather than obtain care from a Provider, and I am choosing to participate in a telehealth visit with a Provider. I further understand that my Provider may not have access to a complete copy of my medical records and will not have the ability to perform an in-person examination, which could result in negative health outcomes from the recommended treatment (e.g., adverse drug interactions or allergic reactions). I further understand that while using telehealth technologies may benefit me, no such benefits or specific results are guaranteed, and my condition may not improve."
+  },
+  {
+   "t": "p",
+   "html": "11. Certain technology, including the Services, may be used while still in a beta testing and development phase, and before such technology is a final and finished product. Technology used to deliver care, including the Service, may contain bugs or other errors, including ones which may limit functionality, produce erroneous results, render part or all of such technology unavailable or inoperable, produce incorrect records, transmissions, data or content, or cause records, transmissions, data or content to be corrupted or lost, any or all of which could limit or otherwise impact the quality, accuracy and/or effectiveness of the medical care or other services that you receive from your Provider(s)."
+  },
+  {
+   "t": "p",
+   "html": "12. The delivery of healthcare services via telehealth is an evolving field and the use of telehealth or other technology in your medical care and treatment from Provider(s) may include uses of technology different from those described in this Consent or not specifically described in this Consent. No potential benefits from the use of telehealth or other technology or specific results can be guaranteed, including any laboratory testing results or related diagnosis or treatment by your Provider(s). Your condition may not be cured or improved, and in some cases, may get worse. There are limitations in the provision of medical care or other services and treatment via telehealth and technology, including the Service, and you may not be able to receive diagnosis and/or treatment through telehealth for every condition for which you seek diagnosis and/or treatment."
+  },
+  {
+   "t": "p",
+   "html": "13. I agree that any information I provide as part of any telehealth visit is accurate, true, and complete."
+  },
+  {
+   "t": "p",
+   "html": "14. I understand that my Provider may determine that a telehealth visit is not appropriate for me due to my particular health concern or for other reasons related to my health status. In such a case: (i) I will receive an alert notifying me that I will be unable to use the Services for the particular issue I submitted; (ii) my request for a telehealth visit will not be submitted to my Provider; (iii) my Provider will not receive any of the information that I submitted; and (iv) I will need to seek any needed care in another way."
+  },
+  {
+   "t": "p",
+   "html": "15. I understand that participating in a telehealth visit is not a guarantee that I will be given a prescription, and that the decision as to whether a prescription is appropriate for my condition will be made in the professional judgment of my Provider."
+  },
+  {
+   "t": "p",
+   "html": "16. I understand that while the Platform may make available access to certain pharmacy or diagnostic lab services, I may request to use any pharmacy or lab of my preference."
+  },
+  {
+   "t": "p",
+   "html": "17. I understand that I am responsible for payment of any amounts due and owing resulting from my telehealth visit."
+  },
+  {
+   "t": "p",
+   "html": "18. I understand that Providers do not address medical emergencies via the Platform. I understand that the responsibility of my Provider may be to direct me to emergency medical services, such as an emergency room."
+  },
+  {
+   "t": "p",
+   "html": "19. I (we) the parent(s) or legal guardian of a minor, do hereby authorize consent to any medical order, laboratory order, medical diagnosis, or treatment and that I (we) have legal authority to consent to such treatment or order."
+  },
+  {
+   "t": "p",
+   "html": "20. I agree that OpenLoop Health, Inc. is a third party beneficiary of the Telehealth Consent Form and has the right to enforce it against me."
+  },
+  {
+   "t": "p",
+   "html": "21. I understand and agree that I give permission to Providers to use and disclose my protected health information including my entire medical record. This protected health information is being used or disclosed for the purpose of telehealth treatment."
+  },
+  {
+   "t": "p",
+   "html": "a. If the person or entity receiving this information is not a health care provider or health plan covered by HIPAA, the information described above may be redisclosed to other individuals or institutions and therefore no longer protected by HIPAA."
+  },
+  {
+   "t": "p",
+   "html": "b. I may refuse to agree to this authorization. My refusal to sign will not affect my payment, ability to obtain treatment, or eligibility for health plan benefits unless this authorization is requested prior to research related to treatment, enrollment in a health plan, or providing health care that is solely for the purpose of giving that information to a third party, such as to a court for a legal proceeding."
+  },
+  {
+   "t": "p",
+   "html": "c. I may inspect or copy the protected health information to be used or disclosed under this authorization. For protected health information created as part of a clinical trial, your right to access is suspended until the clinical trial is completed."
+  },
+  {
+   "t": "p",
+   "html": "d. I may revoke this authorization in writing at any time by sending a written notification to Privacy Officer at 317 6th Ave. Ste. 400, Des Moines, IA 50309 or emailing us at privacy@openloophealth.com. Your notice of revocation will not apply to actions taken by Providers prior to the date of receipt of the notice."
+  },
+  {
+   "t": "h2",
+   "html": "ADDITIONAL TREATMENT-SPECIFIC CONSENT (Compounded Medications)"
+  },
+  {
+   "t": "p",
+   "html": "The following consent applies to patients who receive a prescription from a Provider for compounded medications."
+  },
+  {
+   "t": "p",
+   "html": "1. I understand that the FDA does not approve nor review compounded products for safety, effectiveness, or quality."
+  },
+  {
+   "t": "p",
+   "html": "2. I understand that compounding pharmacies must adhere to strict quality control standards to ensure the safety and effectiveness of the medications they prepare. Compounding pharmacies are licensed pharmacies subject to state and federal regulations."
+  },
+  {
+   "t": "p",
+   "html": "3. Safety information about prescribed medications is available at <a href=\"/glp-1-safety-information\">Safety Information</a>."
+  },
+  {
+   "t": "h2",
+   "html": "ADDITIONAL TREATMENT-SPECIFIC CONSENT (Teletherapy)"
+  },
+  {
+   "t": "p",
+   "html": "The following consent applies to patients accessing the Services to receive a telehealth consultation related to mental or behavioral health. I acknowledge that I may be offered a telehealth consultation related to my mental or behavioral health as part of the Services. This type of telehealth consultation, known as “Teletherapy,” involves the communication of my mental health information to my Provider. Teletherapy has the same purpose or intention as therapy sessions that are conducted in person. However, due to the nature of the technology used, I understand that Teletherapy may be experienced somewhat differently than face-to-face treatment sessions."
+  },
+  {
+   "t": "p",
+   "html": "I understand that I have the following rights with respect to Teletherapy: Patient’s Rights, Risks, and Responsibilities:"
+  },
+  {
+   "t": "p",
+   "html": "1. I have the right to withhold or withdraw consent for my treatment at any time without affecting my right to future care or treatment."
+  },
+  {
+   "t": "p",
+   "html": "2. The laws that protect the confidentiality of my medical information also apply to Teletherapy. As such, I understand that the information disclosed by me during the course of a Teletherapy session generally is confidential unless an exception to confidentiality applies (e.g., mandatory reporting of child, elder or vulnerable adult abuse; if my Provider believes I may be a danger to myself or others; or if I raise emotional or mental health as an issue in a legal proceeding)."
+  },
+  {
+   "t": "p",
+   "html": "3. In addition, I understand that Teletherapy services and care may not be as complete as face-to-face services. I also understand that if my Provider believes I would be better served by another form of therapeutic services (e.g., face-to-face services) I will be referred to a professional who can provide such services in my area."
+  },
+  {
+   "t": "p",
+   "html": "4. I understand that I may benefit from Teletherapy, but that results cannot be guaranteed or assured. I understand that there are potential risks and benefits associated with any form of counseling, and that despite my efforts and the efforts of my Provider, my condition may not improve, and in some cases may even get worse."
+  },
+  {
+   "t": "p",
+   "html": "5. I accept that Teletherapy is not meant to cover emergency situations. If I am having suicidal thoughts or making plans to harm myself, I can call the National Suicide Prevention Lifeline at 1.800.273.TALK (8255) for free 24 hour hotline support. Patients who are actively at risk of harm to self or others are not suitable for Teletherapy services. If this is the case or becomes the case in future, my Provider will recommend more appropriate services."
+  },
+  {
+   "t": "p",
+   "html": "6. I understand that dissemination of any personally identifiable images or information from the Teletherapy interaction to researchers or other entities shall not occur without my written consent."
+  },
+  {
+   "t": "p",
+   "html": "7. I understand that my Provider may need to contact my emergency contact and/or the appropriate authorities in case of an emergency. I agree to inform my Provider of the address where I am located at the beginning of each session, and agree to provide the name of a contact person who my Provider may contact on my behalf in an emergency situation."
+  },
+  {
+   "t": "h2",
+   "html": "ADDITIONAL TREATMENT-SPECIFIC CONSENT (HIV Testing)"
+  },
+  {
+   "t": "p",
+   "html": "The following consent applies to patients accessing the Services to receive a telehealth consultation related to Human Immunodeficiency Virus (“HIV”) testing."
+  },
+  {
+   "t": "p",
+   "html": "HIV is the virus that causes acquired immunodeficiency syndrome (“AIDS”) and can be transmitted through unprotected sex with some who has HIV; contact with blood, including via contaminated hypodermic needles or blood transfusions; by HIV-infected pregnant women to their infants during pregnancy or delivery; or while breastfeeding."
+  },
+  {
+   "t": "p",
+   "html": "HIV can be detected via an HIV antibody test. The HIV antibody test is a blood test that shows whether you have antibodies to the virus that causes AIDS. A sample of blood will be taken from your arm with a needle. If the first test shows that you have antibodies, a series of tests will then be done on the same blood sample to ensure the first test was correct. A positive result means that you have been exposed to the virus and are infected with HIV. It does not mean that you have AIDS or that you will become sick with AIDS in the future. While HIV can lead to AIDS, this test does not say whether you have AIDS. However, a positive result also means you could pass the virus to other people. There is treatment for HIV that can help you stay healthy. Individuals with HIV and/or AIDS can adopt safe practices to protect uninfected and infected people in their lives from becoming infected, or being infected themselves with different strains of HIV."
+  },
+  {
+   "t": "p",
+   "html": "A negative test means you are unlikely to be infected with the virus. It takes time for the body to produce HIV antibodies. If you have been exposed to HIV recently, you will need to be retested in several months to be sure you’re not infected. Your Provider will explain this to you. Taking an HIV test is entirely voluntary. If you do not wish to take the test, you may decline and we will not perform the test. This test is not provided on an anonymous basis. Please seek an anonymous test site if you prefer for your HIV test information and results to remain anonymous. Anonymous testing sites are places where you can receive counseling and the HIV test without giving your name or address. You can find the nearest anonymous test site by contacting your local health department. There are federal and state laws that protect the confidentiality of your HIV test results and related information. Please note, however, that we may disclose your results as required by law for reporting to appropriate public health authorities. There are federal and state laws that prohibit discrimination based on your HIV status and there may be services available to help with any such discrimination."
+  },
+  {
+   "t": "h2",
+   "html": "ADDITIONAL TREATMENT-SPECIFIC CONSENT (Genetic Testing)"
+  },
+  {
+   "t": "p",
+   "html": "The following consent applies to patients accessing the Services to receive a telehealth consultation related to genetic testing. I acknowledge that I may be offered genetic testing as part of the Services. Testing for genetic conditions can be complex and the specifics of the test, including the methods for collecting a biologic specimen, will vary depending on the condition tested for. There are risks and benefits to genetic testing. If I am offered genetic testing as part of the Services, my Provider will explain the specifics of my particular test to me, and I will have the opportunity to obtain professional genetic counseling prior to completing the test to fully understand the risks and benefits."
+  },
+  {
+   "t": "h2",
+   "html": "LABORATORY PRODUCTS AND SERVICES"
+  },
+  {
+   "t": "p",
+   "html": "Certain healthcare services provided to you by Providers via the Service may require that you complete an at-home diagnostic test. These diagnostic tests are provided by third-party laboratories, and neither OpenLoop Health, Inc. and its subsidiaries (collectively, “OpenLoop”), nor your Provider(s) can guarantee the accuracy or reliability of these tests. These laboratory tests can provide false negative, false positive, or inconclusive results that could impact your Provider(s) ability to correctly diagnose or treat your medical conditions. A failure or defect of these tests could also impact your Provider(s) ability to correctly diagnose or treat your medical conditions."
+  },
+  {
+   "t": "h2",
+   "html": "AUTHORIZATION TO BILL INSURANCE AND ASSIGNMENT OF BENEFITS"
+  },
+  {
+   "t": "p",
+   "html": "By clicking “I accept”, I confirm that the above information is true, correct, and complete to the best of my knowledge. I authorize OpenLoop Healthcare Partners, PC and its affiliated entities (OpenLoop Healthcare Partners California, PC, OpenLoop Healthcare Partners Colorado, PC, OpenLoop Healthcare Partners New Jersey Professional Corporation, OpenLoop Healthcare Partners, Wisconsin, S.C., OpenLoop Healthcare Partners Puerto Rico, P.C., Reliant MD Medical Associates PLLC) (collectively, the “Practice”) to bill my insurance company directly and I further authorize any third-party payer through which I have benefits to make payment directly to Practice. I understand that I am financially responsible for any balance. I also authorize Practice or my insurance company to use and disclose any healthcare information for the purpose of obtaining payment for services and determining insurance benefits. Services provided by outside companies (i.e., lab, pathology, radiology) are billed separately by those companies."
+  },
+  {
+   "t": "h2",
+   "html": "CONSENT TO TEXT OR EMAIL USAGE FOR APPOINTMENT AND OTHER HEALTHCARE REMINDERS AND GENERAL INFORMATION"
+  },
+  {
+   "t": "p",
+   "html": "By clicking “I accept,” I authorize Practice to contact me via phone call, SMS/text message, or email at the contact information I have provided, for the purposes of:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Appointment reminders",
+    "Patient feedback requests",
+    "General health and wellness information"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "I understand and agree to the following:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "These communications may be generated in part by automated systems or artificial intelligence (AI).",
+    "Standard messaging and data rates may apply.",
+    "This authorization will remain in effect for future communications unless I revoke it in writing.",
+    "I may opt out of receiving such communications at any time by following the opt out instructions provided in each message or by contacting Practice directly.",
+    "Using these communication methods presents a potential security risk of unauthorized access to protected health information (PHI).",
+    "I accept this risk and consent to receiving communications through these methods.",
+    "If you prefer not to receive appointment reminders or health information via text or email, please notify us in writing or email us at privacy@openloophealth.com."
+   ]
+  },
+  {
+   "t": "h2",
+   "html": "ADDITIONAL STATE-SPECIFIC DISCLOSURES"
+  },
+  {
+   "t": "p",
+   "html": "The following consents apply to patients accessing the Services for the purposes of participating in a telehealth visit within the states listed below, as required by state law:"
+  },
+  {
+   "t": "p",
+   "html": "Alaska: I understand that my primary care provider may obtain a copy of my records of my telehealth encounter."
+  },
+  {
+   "t": "p",
+   "html": "California Patients: The Open Payments database is a federal tool used to search payments made by drug and device companies to physician and teaching hospitals. It can be found at <a href=\"https://openpaymentsdata.cms.gov\">https://openpaymentsdata.cms.gov</a>."
+  },
+  {
+   "t": "p",
+   "html": "For informational purposes only, a link to the federal Centers for Medicare and Medicaid Services (CMS) Open Payments web page is provided above. The federal Physician Payments Sunshine Act requires that detailed information about payment and other payments of value worth over ten dollars ($10) from manufacturers of drugs, medical devices, and biologics to physicians and teaching hospitals be made available to the public."
+  },
+  {
+   "t": "p",
+   "html": "Treatment Records: I understand that If I live in one of the following states, my primary care provider or other treating physician may obtain a copy of my telehealth treatment records with my consent, and Practice may securely send a copy of my telehealth treatment records to my primary care provider or other treating physician. If I need help sending my telehealth treatment records to my primary care provider I can contact call 1-855-597-1248 If I would like Practice to do so, I can contact call 1-855-597-1248 and provide information necessary for Practice to securely send my records."
+  },
+  {
+   "t": "p",
+   "html": "Connecticut: I understand that my primary care provider may obtain a copy of my records of my telehealth encounter."
+  },
+  {
+   "t": "p",
+   "html": "Kansas: I understand that if I have a primary care provider or other treating physician, the person providing telemedicine services must send a report to such primary care or other treating physician of the treatment and services rendered to me during the telemedicine encounter within three days of me providing consent to the person providing telemedicine services to send such report."
+  },
+  {
+   "t": "p",
+   "html": "New Hampshire: I understand that my primary care provider or treating provider may obtain a copy of my records of my telehealth encounter."
+  },
+  {
+   "t": "p",
+   "html": "New Jersey: I understand I have the right to request a copy of my medical information, and I understand my medical information may be forwarded directly to my primary care provider or health care provider of record, or upon my request, to other health care providers."
+  },
+  {
+   "t": "p",
+   "html": "Ohio: I understand that my primary care provider may obtain a copy of my records of my telehealth encounter."
+  },
+  {
+   "t": "p",
+   "html": "South Carolina: I understand that my medical records may be distributed only with my consent and in accordance with applicable laws and regulations to other treating health care practitioners."
+  },
+  {
+   "t": "p",
+   "html": "Texas: I understand that with my consent my medical records may be sent to my primary care physician within 72 hours after receiving Services."
+  },
+  {
+   "t": "h3",
+   "html": "Billing:"
+  },
+  {
+   "t": "p",
+   "html": "Patients residing in New Jersey, New York, and Rhode Island have the right under each states respective billing laws to request an itemized price list for laboratory results."
+  },
+  {
+   "t": "h3",
+   "html": "Formal Complaints:"
+  },
+  {
+   "t": "p",
+   "html": "California: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website <a href=\"https://www.mbc.ca.gov/Consumers/file-a-complaint/\">here</a>, or the physician assistant board’s website <a href=\"https://www.pab.ca.gov/consumers/complaints.shtml\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Georgia: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://medicalboard.georgia.gov/\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Idaho: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://www.in.gov/attorneygeneral/consumer-protection-division/licensing/\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Indiana: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://www.in.gov/attorneygeneral/consumer-protection-division/licensing/\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Iowa: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://dial.iowa.gov/about/boards/medicine\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Kentucky: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://kbml.ky.gov/grievances/Pages/default.aspx\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Maine: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://www.maine.gov/md/complaint/file-complaint\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "New York: I have been informed that to get information regarding your rights and how to report professional misconduct, I should visit <a href=\"https://www.health.ny.gov/professionals/doctors/conduct/\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Oklahoma: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://www.okmedicalboard.org/complaint\">here</a>; or, the Oklahoma Board of Osteopathic Examiners’ website, <a href=\"https://www.ok.gov/osboe/\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Oregon: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://www.oregon.gov/omb/investigations/Pages/How-to-File-a-Complaint.aspx\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Rhode Island: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://ohic.ri.gov/consumer-protection\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Texas:"
+  },
+  {
+   "t": "p",
+   "html": "NOTICE CONCERNING COMPLAINTS - Complaints about physicians, as well as other licensees and registrants of the Texas Medical Board, including physician assistants, acupuncturists, and surgical assistants may be reported for investigation at the following address: Texas Medical Board, Attention: Investigations, 333 Guadalupe, Tower 3, Suite 610, P.O. Box 2018, MC-263, Austin, Texas 78768-2018, Assistance in filing a complaint is available by calling the following telephone number: 1-800-201-9353, For more information, please visit our website at <a href=\"https://www.tmb.state.tx.us\">www.tmb.state.tx.us</a>."
+  },
+  {
+   "t": "p",
+   "html": "AVISO SOBRE LAS QUEJAS - Las quejas sobre médicos, asi como sobre otros profesionales acreditados e inscritos del Consejo Médico de Tejas, incluyendo asistentes de médicos, practicantes de acupuntura y asistentes de cirugia, se pueden presentar en la siguiente dirección para ser investigadas: Texas Medical Board, Attention: Investigations, 333 Guadalupe, Tower 3, Suite 610, P.O. Box 2018, MC-263, Austin, Texas 78768-2018, Si necesita ayuda para presentar una queja, llame al: 1-800-201-9353, Para obtener más información, visite nuestro sitio web en <a href=\"https://www.tmb.state.tx.us\">www.tmb.state.tx.us</a>."
+  },
+  {
+   "t": "p",
+   "html": "Vermont: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://www.healthvermont.gov/systems/board-medical-practice/file-complaint\">here</a>; or, the Vermont Board of Osteopathic Examiners’ website, <a href=\"https://sos.vermont.gov/osteopathic-physicians/\">here</a>."
+  },
+  {
+   "t": "p",
+   "html": "Wyoming: I have been informed that if I want to register a formal complaint about a provider, I should visit the medical board’s website, <a href=\"https://wyomedboard.wyo.gov/consumers/file-a-complaint\">here</a>."
+  }
+ ]
+}

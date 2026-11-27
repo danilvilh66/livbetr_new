@@ -121,7 +121,7 @@ export const planCard = (root, t, { level = 3, eager = false } = {}) => `<articl
     <p class="plan__pitch"><strong>${t.pitch}</strong> ${t.summary}</p>
     <p class="plan__price"><span class="plan__amount">$${t.price}</span><span class="plan__per">per month<br>at every dose</span></p>
     ${checkList(t.points)}
-    <a class="btn ${t.id === 'semaglutide' ? 'btn--gold' : 'btn--line'} btn--block" href="${intakeHref(t.id)}" data-cta="plan-${t.id}">Start with ${t.name.toLowerCase()}</a>
+    <a class="btn ${t.id === 'semaglutide' ? 'btn--gold' : 'btn--line'} btn--block" href="${intakeHref(root, t.id)}" data-cta="plan-${t.id}">Start with ${t.name.toLowerCase()}</a>
   </div>
 </article>`;
 

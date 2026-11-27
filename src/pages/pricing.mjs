@@ -60,7 +60,7 @@ ${journeySection()}
   </div>
 </section>
 
-${faqSection(root, billing, { id: 'billing-title', title: 'Billing, in plain terms', lead: `If a clinician doesn’t approve treatment, your full initial payment is refunded within seven business days. <a href="${site.url}/refund-policy" target="_blank" rel="noopener">Read the refund policy<span class="visually-hidden"> (opens in a new tab)</span></a>.` })}
+${faqSection(root, billing, { id: 'billing-title', title: 'Billing, in plain terms', lead: `If a clinician doesn’t approve treatment, your full initial payment is refunded within seven business days. <a href="${root}refund-policy/">Read the refund policy</a>.` })}
 
 ${finalCta(root)}
 `;

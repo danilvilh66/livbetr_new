@@ -16,7 +16,7 @@ const out = join(here, 'docs');
 const watching = process.argv.includes('--watch');
 // The 404 page is served at arbitrary URLs, so it needs absolute links.
 const basePath = process.env.BASE_PATH ?? '/';
-const pageModules = ['home', 'how-it-works', 'pricing', 'eligibility', 'faq', 'contact', 'not-found'];
+const pageModules = ['home', 'how-it-works', 'pricing', 'eligibility', 'start', 'login', 'portal', 'faq', 'contact', 'legal', 'not-found'];
 
 const bundle = async () => {
   const result = await esbuild.build({
@@ -67,14 +67,17 @@ const build = async () => {
   const { site } = await load('src/data.mjs');
   const sitemapPaths = [];
   for (const name of pageModules) {
-    const { meta, render } = await load(`src/pages/${name}.mjs`);
-    const root = rootFor(meta.path);
-    const page = render(root);
-    const html = layout({ ...meta, ...page, root, assets });
-    const file = meta.path.endsWith('.html') ? join(out, meta.path) : join(out, meta.path, 'index.html');
-    await mkdir(dirname(file), { recursive: true });
-    await writeFile(file, html);
-    if (!meta.noindex) sitemapPaths.push(meta.path);
+    const mod = await load(`src/pages/${name}.mjs`);
+    // A module renders one page (meta + render) or several (pages: [{ meta, render }]).
+    for (const { meta, render } of mod.pages ?? [{ meta: mod.meta, render: mod.render }]) {
+      const root = rootFor(meta.path);
+      const page = render(root);
+      const html = layout({ ...meta, ...page, root, assets });
+      const file = meta.path.endsWith('.html') ? join(out, meta.path) : join(out, meta.path, 'index.html');
+      await mkdir(dirname(file), { recursive: true });
+      await writeFile(file, html);
+      if (!meta.noindex) sitemapPaths.push(meta.path);
+    }
   }
   await writeFile(
     join(out, 'sitemap.xml'),
@@ -83,7 +86,7 @@ const build = async () => {
       .join('\n')}\n</urlset>\n`,
   );
   await writeFile(join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
-  console.log(`Built ${pageModules.length} pages in docs/ (${Math.round(performance.now() - started)} ms): ${assets.js}, ${assets.css}`);
+  console.log(`Built ${sitemapPaths.length} indexed pages in docs/ (${Math.round(performance.now() - started)} ms): ${assets.js}, ${assets.css}`);
 };
 
 const run = async () => {

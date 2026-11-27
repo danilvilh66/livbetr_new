@@ -6,8 +6,14 @@ export const site = {
   legalName: 'Livbetr LLC',
   tagline: 'GLP-1 weight-loss care, priced honestly.',
   url: 'https://www.livbetr.com',
-  intakeUrl: 'https://intake.livbetr.com',
-  portalUrl: 'https://livbetr.eonpro.io',
+  // Back-end connections. While a value is null, that flow runs in preview mode on this
+  // site: everything works in the browser, nothing is sent, and the page says so.
+  integrations: {
+    intakeEndpoint: null, // POST URL that receives a completed intake as JSON
+    checkoutUrl: null, // payment page the intake hands off to after submitting
+    portalLoginUrl: null, // patient portal sign-in endpoint (form POST)
+    contactEndpoint: null, // POST URL for the contact form; without it the form opens the visitor's email app
+  },
   phone: '1-888-664-9435',
   phoneHref: 'tel:+18886649435',
   email: 'support@livbetr.com',
@@ -30,15 +36,16 @@ export const site = {
   },
 };
 
-// Legal documents stay on the current site until legal signs off on new copy.
+// Legal documents, ported from livbetr.com with their wording unchanged
+// (src/content/legal/*.json). Paths match the live site so existing links keep working.
 export const legalLinks = [
-  { label: 'GLP-1 medication safety information', href: `${site.url}/glp-1-safety-information` },
-  { label: 'Terms and conditions', href: `${site.url}/terms` },
-  { label: 'Privacy policy', href: `${site.url}/privacy-policy` },
-  { label: 'California privacy notice', href: `${site.url}/california-privacy-notice` },
-  { label: 'Telehealth consent', href: `${site.url}/telehealth-consent` },
-  { label: 'Refund and cancellation policy', href: `${site.url}/refund-policy` },
-  { label: 'Consumer bill of rights', href: `${site.url}/consumer-bill-of-rights` },
+  { slug: 'glp-1-safety-information', label: 'GLP-1 medication safety information' },
+  { slug: 'terms', label: 'Terms and conditions' },
+  { slug: 'privacy-policy', label: 'Privacy policy' },
+  { slug: 'california-privacy-notice', label: 'California privacy notice' },
+  { slug: 'telehealth-consent', label: 'Telehealth consent' },
+  { slug: 'refund-policy', label: 'Refund and cancellation policy' },
+  { slug: 'consumer-bill-of-rights', label: 'Consumer bill of rights' },
 ];
 
 // Example titration schedules (weekly injection). The clinician sets the real dose.
@@ -197,7 +204,7 @@ export const faqs = [
   {
     id: 'fda', cat: 'medication',
     q: 'Are compounded medications FDA-approved?',
-    a: 'No. Compounded semaglutide and tirzepatide are prepared by licensed pharmacies for individual patients and are not FDA-approved. The FDA does not review compounded drugs for safety, effectiveness or quality. Read our <a href="' + site.url + '/glp-1-safety-information" rel="noopener" target="_blank">GLP-1 safety information</a> before you start.',
+    a: 'No. Compounded semaglutide and tirzepatide are prepared by licensed pharmacies for individual patients and are not FDA-approved. The FDA does not review compounded drugs for safety, effectiveness or quality. Read our <a href="{root}glp-1-safety-information/">GLP-1 safety information</a> before you start.',
   },
   {
     id: 'dosing', cat: 'medication', home: true,
@@ -237,7 +244,7 @@ export const faqs = [
   {
     id: 'refunds', cat: 'billing',
     q: 'Can I get a refund?',
-    a: 'Refunds are generally available until the pharmacy starts preparing your medication. Approved refunds are submitted within seven business days. See the full <a href="' + site.url + '/refund-policy" rel="noopener" target="_blank">refund and cancellation policy</a>.',
+    a: 'Refunds are generally available until the pharmacy starts preparing your medication. Approved refunds are submitted within seven business days. See the full <a href="{root}refund-policy/">refund and cancellation policy</a>.',
   },
   {
     id: 'shipping', cat: 'delivery',
@@ -257,7 +264,7 @@ export const faqs = [
   {
     id: 'sign-in', cat: 'account',
     q: 'How do I sign in?',
-    a: 'Sign in to the <a href="' + site.portalUrl + '" rel="noopener" target="_blank">patient portal</a> with the email you used at sign-up. If you are locked out, call us and we will walk you through it.',
+    a: 'Sign in to the <a href="{root}login/">patient portal</a> with the email you used at sign-up. If you are locked out, call us and we will walk you through it.',
   },
   {
     id: 'contact', cat: 'account',
@@ -299,8 +306,5 @@ export const journey = [
 // Weekly dose for a journey step: none on day one, then the example schedule.
 export const doseFor = (treatment, step) => (step === 0 ? null : treatment.doses[step - 1].mg);
 
-export const intakeHref = (treatment) => {
-  const params = new URLSearchParams({ utm_source: 'website' });
-  if (treatment) params.set('treatment', treatment);
-  return `${site.intakeUrl}/?${params}`;
-};
+// The intake now runs on this site (/start/). `root` is the page's relative path to the site root.
+export const intakeHref = (root, treatment) => `${root}start/${treatment ? `?treatment=${treatment}` : ''}`;

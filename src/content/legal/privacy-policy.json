@@ -1,0 +1,203 @@
+{
+ "title": "Notice of Privacy Practices",
+ "updated": "September 15, 2025",
+ "blocks": [
+  {
+   "t": "p",
+   "html": "Effective Date: September 15, 2025"
+  },
+  {
+   "t": "p",
+   "html": "This Notice describes how your medical information may be used and disclosed, and how you can access this information. Please read it carefully."
+  },
+  {
+   "t": "h2",
+   "html": "Who We Are"
+  },
+  {
+   "t": "p",
+   "html": "This Notice describes the privacy practices of the entities participating in the OpenLoop Affiliated Covered Entity (ACE), including:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "OpenLoop Healthcare Partners PC",
+    "Rezilient OLH, PA",
+    "OpenLoop Healthcare Partners California, PC"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "These entities, under common ownership and control, have designated themselves as an ACE for purposes of complying with HIPAA. ACE participants may share your Protected Health Information (PHI) with each other as needed to carry out treatment, payment, and health-care operations (TPO)."
+  },
+  {
+   "t": "p",
+   "html": "Livbetr partners with OpenLoop Health, our U.S.-licensed medical group and telehealth provider network. This partnership ensures all medical services and prescriptions provided through Livbetr are delivered by qualified, licensed professionals and comply with all federal and state healthcare regulations."
+  },
+  {
+   "t": "h2",
+   "html": "Your Rights"
+  },
+  {
+   "t": "p",
+   "html": "When it comes to your health information, you have certain rights. You can exercise any right below by contacting privacy@livbetr.com. You have the right to:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Access your record: Request to see or get an electronic or paper copy of your medical record and other health information. We will provide it within 30 days of your request and may charge a reasonable, cost-based fee.",
+    "Correct your record: Request corrections to information you believe is incomplete or incorrect. If we deny your request, we'll tell you why in writing within 60 days.",
+    "Request confidential communications: Ask us to contact you in a specific way (for example, at your office or home) or send mail to another address. We will honor all reasonable requests.",
+    "Request limits on what we share: Ask us not to use or share certain health information for treatment, payment, or operations. We may say no if it affects your care. If you pay out-of-pocket in full for a service, we will not share that information with your insurer unless required by law.",
+    "Get a list of disclosures: Ask for a list of who we've shared your information with (for up to six years). We'll include all disclosures except those for treatment, payment, and operations, and provide one list per year for free.",
+    "Receive a copy of this Notice: You can ask for a paper copy anytime, even if you agreed to receive it electronically.",
+    "Choose someone to act for you: If you've granted medical power of attorney or have a legal guardian, that person may exercise your rights and make choices about your information.",
+    "File a complaint: Contact us if you believe your privacy rights have been violated."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "You may also file a complaint with the U.S. Department of Health and Human Services, Office for Civil Rights, at 200 Independence Avenue, S.W., Washington, D.C. 20201. Phone: 1-877-696-6775. Website: www.hhs.gov/ocr/privacy/hipaa/complaints. We will not retaliate against you for filing a complaint."
+  },
+  {
+   "t": "h2",
+   "html": "Your Choices"
+  },
+  {
+   "t": "p",
+   "html": "For certain health information, you can tell us your preferences for how we share information. If you have a clear preference, let us know and we'll follow your instructions."
+  },
+  {
+   "t": "p",
+   "html": "No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties."
+  },
+  {
+   "t": "p",
+   "html": "You have the right and choice to tell us to:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Share information with family, close friends, or others involved in your care",
+    "Share information in a disaster relief situation",
+    "Include your information in a hospital directory"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "If you are unable to express a preference (for example, if you are unconscious), we may share your information if we believe it is in your best interest or needed to reduce a serious and imminent threat to health or safety."
+  },
+  {
+   "t": "p",
+   "html": "We never share your information unless you give written permission for:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Marketing purposes",
+    "Sale of your information",
+    "Most sharing of psychotherapy notes"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "We may contact you for fundraising efforts, but you can opt out of future communications at any time by contacting our Privacy Office."
+  },
+  {
+   "t": "h2",
+   "html": "Our Uses and Disclosures"
+  },
+  {
+   "t": "p",
+   "html": "We may use and share your health information without your authorization as follows:"
+  },
+  {
+   "t": "h3",
+   "html": "Treatment"
+  },
+  {
+   "t": "p",
+   "html": "We use your health information to provide and coordinate your care. Example: a doctor treating you for an injury may ask another healthcare professional about your overall health condition."
+  },
+  {
+   "t": "h3",
+   "html": "Health-Care Operations"
+  },
+  {
+   "t": "p",
+   "html": "We use your information to run our organization, improve care, and communicate with you (such as appointment reminders by email or text). We may use artificial intelligence (AI) and machine learning tools to analyze health information and improve clinical workflows and systems."
+  },
+  {
+   "t": "h3",
+   "html": "Billing and Payment"
+  },
+  {
+   "t": "p",
+   "html": "We use your information to bill and obtain payment from health plans or other entities. Example: we send details about your care to your insurance provider so it can pay for your services."
+  },
+  {
+   "t": "h3",
+   "html": "Other Uses and Disclosures Permitted by Law"
+  },
+  {
+   "t": "p",
+   "html": "We may share your health information in situations such as:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Public health and safety: to prevent disease, help with product recalls, report adverse reactions to medications, report suspected abuse, neglect, or domestic violence, or prevent a serious threat to anyone's health or safety.",
+    "Research: for approved medical research projects.",
+    "Compliance with the law: when required by federal or state law, including with the Department of Health and Human Services to ensure compliance with privacy laws.",
+    "Organ and tissue donation: to support organ or tissue donation requests.",
+    "Medical examiners and funeral directors: to carry out their lawful duties.",
+    "Workers' compensation, law enforcement, and government requests: for workers' compensation claims, for law enforcement or legal investigations, with health oversight agencies as required by law, and for special government functions such as military, national security, or presidential protection.",
+    "Lawsuits and legal actions: in response to a court order, subpoena, or administrative request."
+   ]
+  },
+  {
+   "t": "h2",
+   "html": "Our Responsibilities"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "We are required by law to maintain the privacy and security of your protected health information.",
+    "We will notify you promptly if a breach occurs that may have compromised your information.",
+    "We will follow the duties and privacy practices described in this Notice and provide you a copy upon request.",
+    "We will not use or share your information beyond what is described here unless you authorize us in writing, and you can revoke that authorization at any time by notifying us in writing."
+   ]
+  },
+  {
+   "t": "h2",
+   "html": "Changes to This Notice"
+  },
+  {
+   "t": "p",
+   "html": "We may change the terms of this Notice at any time. Changes will apply to all information we maintain. The updated Notice will be available on our website and upon request in our offices."
+  },
+  {
+   "t": "h2",
+   "html": "Partners"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Medical Provider Network: OpenLoop Health",
+    "Telehealth Platform: Livbetr"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "All care through Livbetr is provided by licensed U.S. clinicians under OpenLoop Health, ensuring compliance with HIPAA and all applicable state and federal regulations."
+  },
+  {
+   "t": "h2",
+   "html": "Contact"
+  },
+  {
+   "t": "p",
+   "html": "Privacy requests: <a href=\"mailto:privacy@livbetr.com\">privacy@livbetr.com</a> Account support: <a href=\"mailto:support@livbetr.com\">support@livbetr.com</a> or <a href=\"tel:+18886649435\">1-888-664-9435</a>"
+  }
+ ]
+}

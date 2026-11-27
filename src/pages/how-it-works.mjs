@@ -1,4 +1,4 @@
-import { site, faqs } from '../data.mjs';
+import { faqs } from '../data.mjs';
 import { icon } from '../icons.mjs';
 import { pageHero, stepsSection, sectionHead, includedList, credentialRow, faqSection, faqSchema, finalCta } from '../components.mjs';
 
@@ -42,7 +42,7 @@ ${stepsSection({ id: 'steps-title', title: 'The four steps', lead: 'Each step, a
   </div>
 </section>
 
-${faqSection(root, start, { id: 'start-faq-title', title: 'Before you start', lead: `Questions about safety or side effects? Message your care team in the <a href="${site.portalUrl}" rel="noopener">patient portal</a>.` })}
+${faqSection(root, start, { id: 'start-faq-title', title: 'Before you start', lead: `Questions about safety or side effects? Message your care team in the <a href="${root}login/">patient portal</a>.` })}
 
 ${finalCta(root)}
 `;

@@ -48,7 +48,7 @@ ${pageHero({
         <span class="route__icon">${icon('stethoscope', { size: 22 })}</span>
         <h3>Medication and treatment</h3>
         <p>Doses and injection instructions, side effects, and prescription or refill follow-up. Your clinical care team answers in the patient portal.</p>
-        <p class="route__actions"><a class="btn btn--primary btn--block" href="${site.portalUrl}" rel="noopener">${icon('login', { size: 18 })} Message my care team</a></p>
+        <p class="route__actions"><a class="btn btn--primary btn--block" href="${root}login/">${icon('login', { size: 18 })} Message my care team</a></p>
         <p class="fine">Portal messages are not for emergencies.</p>
       </li>
       <li class="route route--urgent">
@@ -76,7 +76,7 @@ ${pageHero({
         <li><a href="${root}faq/#after-paying">I have paid. What happens next?</a></li>
       </ul>
     </div>
-    <form class="form card" novalidate data-contact-form data-email="${site.email}">
+    <form class="form card" novalidate data-contact-form data-email="${site.email}" data-endpoint="${site.integrations.contactEndpoint ?? ''}">
       <div class="form__error-summary" role="alert" tabindex="-1" hidden data-error-summary>
         <p><strong>Please fix the following:</strong></p>
         <ul></ul>
@@ -127,9 +127,15 @@ ${pageHero({
     </form>
     <div class="form-success card" hidden tabindex="-1" data-contact-success>
       <span class="form-success__icon">${icon('check', { size: 26 })}</span>
-      <h3 class="display-3">Your message is ready to send</h3>
-      <p>Your email app should have opened with your message to ${site.email}. Press send there and we&rsquo;ll reply by email.</p>
-      <p>Email app didn&rsquo;t open? <a href="#" data-mailto-fallback>Open it again</a>, or call <a href="${site.phoneHref}">${site.phone}</a>.</p>
+      <div data-success-mailto>
+        <h3 class="display-3">Your message is ready to send</h3>
+        <p>Your email app should have opened with your message to ${site.email}. Press send there and we&rsquo;ll reply by email.</p>
+        <p>Email app didn&rsquo;t open? <button type="button" class="link-inline" data-mailto-fallback>Open it again</button>, or call <a href="${site.phoneHref}">${site.phone}</a>.</p>
+      </div>
+      <div data-success-sent hidden>
+        <h3 class="display-3">Message sent</h3>
+        <p>Thanks. We&rsquo;ll reply by email.</p>
+      </div>
       <button class="btn btn--ghost" type="button" data-contact-reset>Write another message</button>
     </div>
   </div>
@@ -143,7 +149,7 @@ ${pageHero({
     </div>
     <div>
       <h2 class="display-3">Privacy and records requests</h2>
-      <p>Call customer service at <a href="${site.phoneHref}">${site.phone}</a>. Formal request methods are listed in our <a href="${site.url}/privacy-policy" target="_blank" rel="noopener">privacy policy<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+      <p>Call customer service at <a href="${site.phoneHref}">${site.phone}</a>. Formal request methods are listed in our <a href="${root}privacy-policy/">privacy policy</a>.</p>
     </div>
     <div>
       <h2 class="display-3">Report a side effect</h2>
